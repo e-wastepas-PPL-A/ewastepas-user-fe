@@ -1,7 +1,9 @@
 import React from "react";
+// import { navItem } from "react-router-dom";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
+
 export const NavbarLinks = [
   {
     name: "Beranda",
@@ -13,7 +15,7 @@ export const NavbarLinks = [
   },
   {
     name: "Kategori",
-    link: "/kategori",
+    link: "/KategoriPage",
   },
   {
     name: "Artikel",
