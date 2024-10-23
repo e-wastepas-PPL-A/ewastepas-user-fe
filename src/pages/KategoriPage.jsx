@@ -22,7 +22,7 @@ const kategoriData = [
 ];
 
 const CardSlider = () => {
-  const [activeCard, setActiveCard] = useState(null); // State untuk menyimpan card yang aktif
+  const [activeCard, setActiveCard] = useState(null);
 
   const settings = {
     dots: true,
@@ -49,7 +49,7 @@ const CardSlider = () => {
   };
 
   const handleCardClick = (index) => {
-    setActiveCard(index); // Mengubah kartu yang aktif saat di-klik
+    setActiveCard(index);
   };
 
   const Card = ({ image, bgImage, title, isActive, onClick }) => {
@@ -57,7 +57,7 @@ const CardSlider = () => {
       <div
         onClick={onClick}
         className={`cursor-pointer transform transition-transform duration-300 
-          ${isActive ? "scale-110" : "hover:scale-105"}`} // Kartu membesar saat di klik
+          ${isActive ? "scale-110" : "hover:scale-105"}`}
       >
         <div
           className="relative w-full h-96 bg-cover bg-center rounded-xl shadow-lg"
@@ -93,8 +93,8 @@ const CardSlider = () => {
               image={card.image}
               bgImage={card.bgImage}
               title={card.title}
-              isActive={activeCard === index} // Menentukan apakah kartu ini yang sedang aktif
-              onClick={() => handleCardClick(index)} // Menangani event klik pada kartu
+              isActive={activeCard === index}
+              onClick={() => handleCardClick(index)}
             />
           </div>
         ))}
