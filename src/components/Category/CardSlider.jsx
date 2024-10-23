@@ -3,21 +3,36 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const kategoriData = [
+const categoryData = [
   {
     image: "/images/kulkas.png",
     bgImage: "/images/bg.jpg",
-    title: "Peralatan rumah tangga besar",
+    title: "Lorem",
   },
   {
     image: "/images/kulkas.png",
     bgImage: "/images/bg.jpg",
-    title: "Peralatan rumah tangga kecil",
+    title: "Lorem",
   },
   {
     image: "/images/kulkas.png",
     bgImage: "/images/bg.jpg",
-    title: "Mainan elektronik",
+    title: "Lorem",
+  },
+  {
+    image: "/images/kulkas.png",
+    bgImage: "/images/bg.jpg",
+    title: "Lorem",
+  },
+  {
+    image: "/images/kulkas.png",
+    bgImage: "/images/bg.jpg",
+    title: "Lorem",
+  },
+  {
+    image: "/images/kulkas.png",
+    bgImage: "/images/bg.jpg",
+    title: "Lorem",
   },
 ];
 
@@ -28,7 +43,7 @@ const CardSlider = () => {
     dots: true,
     infinite: true,
     speed: 400,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -36,13 +51,13 @@ const CardSlider = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
         },
       },
     ],
@@ -60,23 +75,19 @@ const CardSlider = () => {
           ${isActive ? "scale-110" : "hover:scale-105"}`}
       >
         <div
-          className="relative w-full h-96 bg-cover bg-center rounded-xl shadow-lg"
+          className="relative w-full h-64 bg-cover bg-center rounded-xl shadow-lg"
           style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          {/* Product image */}
+          {/* image */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <img
-              src={image}
-              alt={title}
-              className="w-full object-contain z-10"
-            />
+            <img src={image} alt={title} className="w-52 object-contain z-10" />
           </div>
         </div>
-        {/* Content Section */}
+        {/* Title */}
         <div className="text-center mt-6 mb-12">
           <h3 className="text-lg font-semibold">{title}</h3>
         </div>
@@ -87,7 +98,7 @@ const CardSlider = () => {
   return (
     <div className="container mx-auto py-16">
       <Slider {...settings}>
-        {kategoriData.map((card, index) => (
+        {categoryData.map((card, index) => (
           <div key={index} className="px-4">
             <Card
               image={card.image}

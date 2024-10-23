@@ -30,7 +30,7 @@ function RegisterPage() {
           </div>
           <div className="p-6 w-full max-w-md">
             <div className="flex justify-center mb-10 -mt-10">
-              <img src="/public/images/Logo.png" alt="Logo" className="w-64" />
+              <img src="/public/images/logo.png" alt="Logo" className="w-64" />
             </div>
             <h1 className="text-4xl font-bold mb-4 -mt-5 text-gray-800">
               Registrasi

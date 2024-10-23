@@ -16,7 +16,7 @@ export const NavbarLinks = [
   },
   {
     name: "Kategori",
-    link: "/KategoriPage",
+    link: "/CategoryPage",
   },
   {
     name: "Artikel",
@@ -27,6 +27,7 @@ export const NavbarLinks = [
     link: "/kontak",
   },
 ];
+
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   return (
@@ -40,7 +41,7 @@ const Navbar = () => {
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
               <img
-                src="/public/images/Logo.png"
+                src="/public/images/logo.png"
                 className="h-8"
                 alt="EwhaleLogo"
               />
