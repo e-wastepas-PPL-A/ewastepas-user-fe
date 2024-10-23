@@ -3,6 +3,7 @@ import React from "react";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
+import { Link } from "react-router-dom";
 
 export const NavbarLinks = [
   {
@@ -67,12 +68,14 @@ const Navbar = () => {
             <button className="text-3xl hover:text-primary ">
               <PiShoppingCartLight />
             </button>
-            <button
-              type="button"
-              className="text-white bg-primary focus:outline-none  font-semibold rounded-full text-sm px-5 py-2 text-center  md:block"
-            >
-              Registrasi
-            </button>
+            <Link to="RegistrasiPage">
+              <button
+                type="button"
+                className="text-white bg-primary focus:outline-none  font-semibold rounded-full text-sm px-5 py-2 text-center  md:block"
+              >
+                Registrasi
+              </button>
+            </Link>
           </div>
           {/* Mobile hamburger menu Section */}
           <div className="md:hidden" onClick={() => setOpen(!open)}>
