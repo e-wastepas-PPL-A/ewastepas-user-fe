@@ -3,6 +3,7 @@ import AppLayout from "./pages/Layouts/AppLayout";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="CategoryPage" element={<CategoryPage />}></Route>
           <Route path="RegisterPage" element={<RegisterPage />}></Route>
+          <Route path="LoginPage" element={<LoginPage />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

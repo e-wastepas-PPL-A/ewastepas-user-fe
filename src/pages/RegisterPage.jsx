@@ -99,7 +99,7 @@ function RegisterPage() {
             <div className="text-center mt-2">
               <p>
                 Anda sudah memiliki akun?{" "}
-                <a href="#" className="text-red-500">
+                <a href="LoginPage" className="text-red-500">
                   Masuk
                 </a>
               </p>
