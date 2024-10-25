@@ -69,7 +69,7 @@ const Navbar = () => {
             <button className="text-3xl hover:text-primary ">
               <PiShoppingCartLight />
             </button>
-            <Link to="RegistrasiPage">
+            <Link to="RegisterPage">
               <button
                 type="button"
                 className="text-white bg-primary focus:outline-none  font-semibold rounded-full text-sm px-5 py-2 text-center  md:block"
