@@ -1,20 +1,26 @@
 import React, { useState } from "react";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { FiPlus, FiMinus, FiArrowRight } from "react-icons/fi";
 
-const ProductCard = ({ image, title, points }) => {
-  const [count, setCount] = useState(1);
+const ProductCard = ({ image, title, points, onIncrement, onDecrement }) => {
+  const [count, setCount] = useState(0); // Set nilai
 
-  const handleIncrement = () => setCount(count + 1);
+  const handleIncrement = () => {
+    setCount(count + 1);
+    onIncrement();
+  };
+
   const handleDecrement = () => {
     if (count > 0) {
       setCount(count - 1);
+      onDecrement();
     }
   };
 
   return (
-    <div className="relative w-full h-50 bg-secondary rounded-lg shadow-md flex flex-col items-center justify-between p-4">
+    <div className="relative w-full h-50 bg-primary rounded-lg shadow-md flex flex-col items-center justify-between p-4">
       {/* Points */}
-      <div className="absolute -top-4 -right-4 bg-secondary text-white text-sm rounded-full w-20 h-20 flex flex-col items-center justify-center">
+      <div className="absolute -top-4 -right-4 bg-primary text-white text-sm rounded-full w-20 h-20 flex flex-col items-center justify-center">
         <span className="text-lg font-bold">{points}</span>
         <span className="text-xs">Points</span>
       </div>
@@ -49,6 +55,7 @@ const ProductCard = ({ image, title, points }) => {
   );
 };
 
+/* Data Product */
 const CardProduct = () => {
   const products = [
     { id: 1, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
@@ -59,6 +66,27 @@ const CardProduct = () => {
     { id: 6, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
   ];
 
+  // Button Total Item
+  const TotalItemButton = ({ totalItems }) => {
+    return (
+      <div className="fixed bottom-4 w-full flex justify-center -ml-16">
+        <Link
+          to="/CartPage"
+          className="bg-white text-primary font-bold rounded-full px-6 py-3 shadow-md flex items-center justify-between w-full text-left ring-2 ring-primary focus:outline-double sm:w-auto lg:w-[500px] "
+        >
+          <span>Total {totalItems} item</span>
+          <FiArrowRight className="text-primary text-lg" />
+        </Link>
+      </div>
+    );
+  };
+
+  const [totalItems, setTotalItems] = useState(0); // Set nilai
+
+  const incrementTotalItems = () => setTotalItems(totalItems + 1);
+  const decrementTotalItems = () =>
+    setTotalItems(totalItems > 0 ? totalItems - 1 : 0);
+
   return (
     <div className="container mx-auto py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -68,9 +96,13 @@ const CardProduct = () => {
             image={product.image}
             title={product.title}
             points={product.points}
+            onIncrement={incrementTotalItems}
+            onDecrement={decrementTotalItems}
           />
         ))}
       </div>
+
+      {totalItems > 0 && <TotalItemButton totalItems={totalItems} />}
     </div>
   );
 };
