@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoIosEyeOff } from "react-icons/io";
 import { IoMdEye } from "react-icons/io";
 
-const InputPassword = ({ label, value, onChange }) => {
+const InputPassword = ({ label, value, onChange, placeholder }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -17,6 +17,7 @@ const InputPassword = ({ label, value, onChange }) => {
         type={showPassword ? "text" : "password"}
         value={value}
         onChange={onChange}
+        placeholder={placeholder}
         className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
         required
       />

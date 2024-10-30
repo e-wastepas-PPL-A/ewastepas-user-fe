@@ -45,24 +45,28 @@ function RegisterPage() {
                 label={"Nama Pengguna"}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                placeholder={"Nama Pengguna"}
               />
               <InputEmail
                 id="email"
                 label={"Email"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder={"Email"}
               />
               <InputPassword
                 id="password"
                 label={"Kata Sandi"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder={"Kata Sandi"}
               />
               <InputPassword
                 id="confirmPassword"
                 label={"Konfirmasi Kata Sandi"}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder={"Konfirmasi Kata Sandi"}
               />
 
               <div className="mb-2">
