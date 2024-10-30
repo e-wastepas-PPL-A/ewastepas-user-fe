@@ -34,12 +34,14 @@ function LoginPage() {
               label={"Email"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder={"Email"}
             />
             <InputPassword
               id="password"
               label={"Kata Sandi"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder={"Kata Sandi"}
             />
 
             <div className="my-3 flex justify-between items-center">
@@ -58,7 +60,7 @@ function LoginPage() {
                   Ingatkan saya
                 </label>
               </div>
-              <a href="#" className="text-red-500 text-md">
+              <a href="ForgotPasswordPage" className="text-red-500 text-md">
                 Lupa kata sandi
               </a>
             </div>

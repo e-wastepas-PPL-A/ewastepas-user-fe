@@ -8,6 +8,8 @@ import CartPage from "./pages/CartPage";
 // auth import
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route path="CartPage" element={<CartPage />} />
           <Route path="RegisterPage" element={<RegisterPage />} />
           <Route path="LoginPage" element={<LoginPage />} />
+          <Route path="ForgotPasswordPage" element={<ForgotPasswordPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
