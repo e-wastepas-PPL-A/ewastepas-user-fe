@@ -4,10 +4,10 @@ import { FiSearch } from "react-icons/fi";
 const SearchBar = () => {
   return (
     <div className="flex justify-center items-center py-12">
-      <div className="relative">
+      <div className="relative w-full max-w-md">
         <input
           type="text"
-          className="w-[650px] p-3 rounded-full border-2 border-transparent focus:outline-none ring-2 ring-primary focus:ring-secondary bg-gray-50"
+          className="w-full p-3 rounded-full border-2 border-transparent focus:outline-none ring-2 ring-primary focus:ring-secondary bg-gray-50"
           placeholder="Cari Sampah Elektronik..."
         />
         <button className="absolute right-4 top-1/2 transform -translate-y-1/2">

@@ -4,7 +4,7 @@ const PickUp = () => {
   return (
     <>
       <div className="flex items-center mb-4">
-        <h2 className="text-xl font-bold">Sampah Dijemput</h2>
+        <h2 className="text-xl font-bold">Ewaste Pick-up</h2>
       </div>
       <div className="p-4 bg-gray-100 rounded-md">
         <div className="border-b-2 border-b-slate-300 pb-4">
