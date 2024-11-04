@@ -7,24 +7,16 @@ import { Link } from "react-router-dom";
 
 export const NavbarLinks = [
   {
-    name: "Beranda",
+    name: "Home",
     link: "/",
   },
   {
-    name: "Tentang Kami",
-    link: "/tentangkami",
-  },
-  {
-    name: "Kategori",
+    name: "Pick & Pack",
     link: "/CategoryPage",
   },
   {
-    name: "Artikel",
-    link: "/artikel",
-  },
-  {
-    name: "Kontak",
-    link: "/kontak",
+    name: "About Us",
+    link: "/AboutPage",
   },
 ];
 
@@ -65,10 +57,12 @@ const Navbar = () => {
             </ul>
           </div>
           {/* Icons Section */}
-          <div className="flex items-center gap-3 ">
-            <button className="text-3xl hover:text-primary ">
-              <PiShoppingCartLight />
-            </button>
+          <div className="flex items-center gap-9">
+            <Link to="CartPage">
+              <button className="text-3xl hover:text-primary">
+                <PiShoppingCartLight />
+              </button>
+            </Link>
             <Link to="RegisterPage">
               <button
                 type="button"

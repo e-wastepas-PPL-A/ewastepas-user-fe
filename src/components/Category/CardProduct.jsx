@@ -1,108 +1,86 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiPlus, FiMinus, FiArrowRight } from "react-icons/fi";
+import Modal from "../Modal"; // Import the Modal component
 
-const ProductCard = ({ image, title, points, onIncrement, onDecrement }) => {
-  const [count, setCount] = useState(0); // Set nilai
+// Data products
+const productsData = [
+  {
+    title: "Laptop",
+    points: 30,
+    image: "/images/kulkas.png",
+    bgImage: "/images/bg.jpg",
+  },
+];
 
-  const handleIncrement = () => {
-    setCount(count + 1);
-    onIncrement();
-  };
-
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-      onDecrement();
-    }
-  };
-
+const Card = ({ title, points, image, bgImage, onAddToCart }) => {
   return (
-    <div className="relative w-full h-50 bg-primary rounded-lg shadow-md flex flex-col items-center justify-between p-4">
-      {/* Points */}
-      <div className="absolute -top-4 -right-4 bg-primary text-white text-sm rounded-full w-20 h-20 flex flex-col items-center justify-center">
-        <span className="text-lg font-bold">{points}</span>
-        <span className="text-xs">Points</span>
+    <div className="bg-white shadow-lg rounded-xl overflow-hidden w-80 flex flex-col items-center">
+      {/* Background*/}
+      <div
+        className="relative w-full h-52"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Image Sampah */}
+        <img
+          src={image}
+          alt={title}
+          className="absolute top-8 left-1/2 transform -translate-x-1/2 w-44 h-40 object-contain z-10"
+        />
       </div>
-
-      {/* Image */}
-      <div className="w-full h-[250px] bg-white rounded-md flex items-center justify-center">
-        <img src={image} alt={title} className="w-full h-full object-contain" />
+      {/* Title dan poin */}
+      <div className="text-center mt-6 px-6">
+        <h3 className="text-xl font-bold text-gray-800">{title}</h3>
+        <p className="text-primary text-lg font-medium">{points} Points</p>
       </div>
-
-      {/* Title */}
-      <div className="text-center mt-2">
-        <p className="text-white font-semibold text-lg">{title}</p>
-      </div>
-
-      {/* Quantity */}
-      <div className="flex items-center mt-2 space-x-4 bg-white rounded-full px-4 py-2">
-        <button
-          onClick={handleDecrement}
-          className="bg-gray-300 text-gray-800 rounded-full w-10 h-7 flex items-center justify-center"
-        >
-          <FiMinus />
-        </button>
-        <span className="text-gray-700">{count}</span>
-        <button
-          onClick={handleIncrement}
-          className="bg-gray-300 text-gray-800 rounded-full w-10 h-7 flex items-center justify-center"
-        >
-          <FiPlus />
-        </button>
-      </div>
+      {/* Button Add to Cart */}
+      <button
+        onClick={() => onAddToCart(title)} // Call the handler passed from parent
+        className="flex items-center justify-center bg-primary font-semibold text-white rounded-full mt-6 mb-6 w-72 py-3 shadow-md transform transition-transform duration-200 hover:scale-105"
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };
 
-/* Data Product */
 const CardProduct = () => {
-  const products = [
-    { id: 1, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
-    { id: 2, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
-    { id: 3, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
-    { id: 4, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
-    { id: 5, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
-    { id: 6, image: "/images/kulkas.png", title: "Kulkas", points: 50 },
-  ];
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState("");
 
-  // Button Total Item
-  const TotalItemButton = ({ totalItems }) => {
-    return (
-      <div className="fixed bottom-4 w-full flex justify-center -ml-16">
-        <Link
-          to="/CartPage"
-          className="bg-white text-primary font-bold rounded-full px-6 py-3 shadow-md flex items-center justify-between w-full text-left ring-2 ring-primary focus:outline-double sm:w-auto lg:w-[500px] "
-        >
-          <span>Total {totalItems} item</span>
-          <FiArrowRight className="text-primary text-lg" />
-        </Link>
-      </div>
-    );
+  const handleAddToCart = (title) => {
+    setSelectedProduct(title); // Set the selected product title
+    setModalVisible(true); // Show the modal
   };
 
-  const [totalItems, setTotalItems] = useState(0); // Set nilai
-
-  const incrementTotalItems = () => setTotalItems(totalItems + 1);
-  const decrementTotalItems = () =>
-    setTotalItems(totalItems > 0 ? totalItems - 1 : 0);
+  const closeModal = () => {
+    setModalVisible(false); // Hide the modal
+    setSelectedProduct(""); // Reset the selected product
+  };
 
   return (
-    <div className="container mx-auto py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            image={product.image}
-            title={product.title}
-            points={product.points}
-            onIncrement={incrementTotalItems}
-            onDecrement={decrementTotalItems}
+    <div className="flex items-center justify-center p-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        {productsData.map((card, index) => (
+          <Card
+            key={index}
+            title={card.title}
+            points={card.points}
+            image={card.image}
+            bgImage={card.bgImage}
+            onAddToCart={handleAddToCart} // Pass the handler to Card
           />
         ))}
       </div>
-
-      {totalItems > 0 && <TotalItemButton totalItems={totalItems} />}
+      {modalVisible && (
+        <Modal
+          title={`${selectedProduct} has been added to the cart!`}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };
