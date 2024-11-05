@@ -23,7 +23,7 @@ function RegisterPage() {
 
   return (
     <>
-      <div className="container px-4 py-16 mx-32">
+      <div className="container px-4 py-16 mx-32 mt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="w-4/5">
             <img src="/public/images/register.png" alt="Registrasi" />
