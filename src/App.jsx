@@ -4,12 +4,12 @@ import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CartPage from "./pages/CartPage";
+import OrderPage from "./pages/OrderPage";
 
 // auth import
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route path="CategoryPage" element={<CategoryPage />} />
           <Route path="CheckoutPage" element={<CheckoutPage />} />
           <Route path="CartPage" element={<CartPage />} />
+          <Route path="OrderPage" element={<OrderPage />} />
           <Route path="RegisterPage" element={<RegisterPage />} />
           <Route path="LoginPage" element={<LoginPage />} />
           <Route path="ForgotPasswordPage" element={<ForgotPasswordPage />} />

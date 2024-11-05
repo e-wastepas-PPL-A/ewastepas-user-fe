@@ -4,7 +4,7 @@ import Summary from "../components/Cart/Summary";
 
 const CartPage = () => {
   return (
-    <div className="flex justify-center bg-gray-100 py-8">
+    <div className="flex justify-center bg-gray-100 py-8 pt-36">
       <div className="w-full sm:w-4/5 px-4 sm:px-0">
         {/* Title */}
         <h2 className="text-2xl font-bold mb-4">Cart</h2>

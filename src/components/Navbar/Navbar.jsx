@@ -1,9 +1,8 @@
 import React from "react";
-// import { navItem } from "react-router-dom";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const NavbarLinks = [
   {
@@ -18,16 +17,20 @@ export const NavbarLinks = [
     name: "About Us",
     link: "/AboutPage",
   },
+  {
+    name: "Contact",
+    link: "/ContactPage",
+  },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <>
-      <nav>
+      <nav className="bg-white shadow-sm">
         <div className="container flex justify-between items-center py-2">
           {/* Logo Section */}
-          <div className="flex items-center py-6 ">
+          <div className="flex items-center py-6">
             <a
               href="#"
               className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -40,37 +43,39 @@ const Navbar = () => {
             </a>
           </div>
           {/* Menu Section */}
-          <div className="hidden md:block ">
-            <ul className="flex items-center gap-5 ">
-              {NavbarLinks.map((navItem) => {
-                return (
-                  <li key={navItem.name}>
-                    <a
-                      href={navItem.link}
-                      className="inline-block py-1 px-3 hover:text-primary font-semibold"
-                    >
-                      {navItem.name}
-                    </a>
-                  </li>
-                );
-              })}
+          <div className="hidden md:block">
+            <ul className="flex items-center gap-5">
+              {NavbarLinks.map((navItem) => (
+                <li key={navItem.name}>
+                  <NavLink
+                    to={navItem.link}
+                    className={({ isActive }) =>
+                      `inline-block py-1 px-3 font-semibold ${
+                        isActive ? "text-primary" : "hover:text-primary"
+                      }`
+                    }
+                  >
+                    {navItem.name}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </div>
           {/* Icons Section */}
           <div className="flex items-center gap-9">
-            <Link to="CartPage">
+            <NavLink to="CartPage">
               <button className="text-3xl hover:text-primary">
                 <PiShoppingCartLight />
               </button>
-            </Link>
-            <Link to="RegisterPage">
+            </NavLink>
+            <NavLink to="RegisterPage">
               <button
                 type="button"
-                className="text-white bg-primary focus:outline-none  font-semibold rounded-full text-sm px-5 py-2 text-center  md:block"
+                className="text-white bg-primary focus:outline-none font-semibold rounded-full text-sm px-5 py-2 text-center md:block"
               >
                 Registrasi
               </button>
-            </Link>
+            </NavLink>
           </div>
           {/* Mobile hamburger menu Section */}
           <div className="md:hidden" onClick={() => setOpen(!open)}>
