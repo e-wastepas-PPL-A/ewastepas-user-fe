@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-const InputText = ({ label, value, onChange, placeholder }) => {
+const InputText = ({type, label, value, onChange, placeholder }) => {
   return (
     <div className="mb-2 relative">
       <label className="block text-gray-700 font-semibold mb-1">{label}</label>
       <input
-        type="text"
+        type={type}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
