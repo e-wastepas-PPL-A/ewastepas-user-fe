@@ -22,7 +22,7 @@ const SideBar = () => {
             }
           >
             <FaUser className="text-lg" />
-            <span className="ml-2">My Profile</span>
+            <span className="ml-2">Profil</span>
           </NavLink>
         </li>
         <li className="mb-4">
@@ -35,7 +35,7 @@ const SideBar = () => {
             }
           >
             <FaFileAlt className="text-lg" />
-            <span className="ml-2">My Order</span>
+            <span className="ml-2">Order</span>
           </NavLink>
         </li>
       </ul>

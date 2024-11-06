@@ -9,14 +9,14 @@ const Schedule = ({
 }) => {
   return (
     <div className="bg-gray-100 p-4 rounded-lg">
-      <h2 className="text-lg font-bold mb-4">Pick-up Schedule</h2>
+      <h2 className="text-lg font-bold mb-4">Jadwal Penjemputan</h2>
       <div className="space-y-4">
         <div>
           <label
             htmlFor="pickupDate"
             className="block text-sm font-medium text-gray-700"
           >
-            Pick-up Date
+            Tanggal Penjemputan
           </label>
           <input
             type="date"
@@ -31,7 +31,7 @@ const Schedule = ({
             htmlFor="pickupTime"
             className="block text-sm font-medium text-gray-700"
           >
-            Pick-up Time
+            Waktu Penjemputan
           </label>
           <select
             id="pickupTime"

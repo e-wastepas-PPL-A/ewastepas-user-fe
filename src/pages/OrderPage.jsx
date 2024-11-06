@@ -14,22 +14,24 @@ const OrderPage = () => {
           {/* buttons */}
           <div className="flex rounded-xl shadow">
             <button
-              className={`flex-1 text-center py-2 rounded-xl ${activeTab === "ongoing"
-                ? "text-white bg-primary font-semibold"
-                : "text-gray-600"
-                }`}
+              className={`flex-1 text-center py-2 rounded-xl ${
+                activeTab === "ongoing"
+                  ? "text-white bg-primary font-semibold"
+                  : "text-gray-600"
+              }`}
               onClick={() => setActiveTab("ongoing")}
             >
               On Going
             </button>
             <button
-              className={`flex-1 text-center py-2 rounded-xl ${activeTab === "history"
-                ? "text-white bg-primary font-semibold"
-                : "text-gray-600"
-                }`}
+              className={`flex-1 text-center py-2 rounded-xl ${
+                activeTab === "history"
+                  ? "text-white bg-primary font-semibold"
+                  : "text-gray-600"
+              }`}
               onClick={() => setActiveTab("history")}
             >
-              History
+              Histori
             </button>
           </div>
 

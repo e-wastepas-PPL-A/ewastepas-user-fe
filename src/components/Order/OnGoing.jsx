@@ -3,8 +3,8 @@ import React from "react";
 const ordersData = [
   {
     orderId: "202411220005",
-    date: "22-November-2024",
-    status: "On Going",
+    date: "22 November2024",
+    status: "Sedang di Proses",
     products: [
       {
         id: 1,
@@ -24,8 +24,8 @@ const ordersData = [
   },
   {
     orderId: "202411230006",
-    date: "23-November-2024",
-    status: "On Going",
+    date: "23 November 2024",
+    status: "Sedang di Proses",
     products: [
       {
         id: 3,
