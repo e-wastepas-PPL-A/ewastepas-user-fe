@@ -22,7 +22,7 @@ const SideBar = () => {
             }
           >
             <FaUser className="text-lg" />
-            <span className="ml-2">My Profile</span>
+            <span className="ml-2">Profil Saya</span>
           </NavLink>
         </li>
         <li className="mb-4">

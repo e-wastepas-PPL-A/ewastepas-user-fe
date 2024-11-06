@@ -17,34 +17,34 @@ const ChangePasswordForm = ({ setIsChangePassword }) => {
       onSubmit={handleSubmit}
       className="p-6 rounded-lg shadow-md border border-gray-300"
     >
-      <h5 className="text-xl font-semibold mb-6">Change Password Here</h5>
+      <h5 className="text-xl font-semibold mb-6">Ubah Kata Sandi</h5>
       <hr className="border-t-1 border-black -mt-4 mb-5" />
       <div className="space-y-4">
         <div>
           <InputPassword
             id="oldPassword"
-            label={"Current Password"}
+            label={"Kata Sandi Lama"}
             value={oldPassword}
             onChange={(e) => setOldPassword(e.target.value)}
-            placeholder={"Current Password"}
+            placeholder={"Kata Sandi Lama"}
           />
         </div>
         <div>
           <InputPassword
             id="newPassword"
-            label={"New Password"}
+            label={"Kata Sandi Baru"}
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            placeholder={"New Password"}
+            placeholder={"Kata Sandi Baru"}
           />
         </div>
         <div>
           <InputPassword
             id="confirmNewPassword"
-            label={"Confirm New Password"}
+            label={"Konfirmasi Kata Sandi Baru"}
             value={confirmNewPassword}
             onChange={(e) => setConfirmNewPassword(e.target.value)}
-            placeholder={"Confirm New Password"}
+            placeholder={"Konfirmasi Kata Sandi Baru"}
           />
         </div>
       </div>
@@ -54,13 +54,13 @@ const ChangePasswordForm = ({ setIsChangePassword }) => {
           onClick={() => setIsChangePassword(null)}
           className="px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300"
         >
-          Cancel
+          Batal
         </button>
         <button
           type="submit"
           className="px-4 py-2 bg-primary text-white hover:bg-primary"
         >
-          Save
+          Simpan
         </button>
       </div>
     </form>

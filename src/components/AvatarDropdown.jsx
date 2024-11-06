@@ -21,11 +21,11 @@ function AvatarDropdown() {
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
           <Link
-            to="/profile"
+            to="/ProfilePage"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white"
             onClick={closeDropdown}
           >
-            Profile
+            Profil Saya
           </Link>
           <Link
             to="/OrderPage"
