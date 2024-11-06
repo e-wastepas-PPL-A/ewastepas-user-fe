@@ -53,7 +53,7 @@ const Profile = () => {
       onSubmit={handleSubmit}
       className="p-6 rounded-lg shadow-md border border-gray-300"
     >
-      <h5 className="text-xl font-semibold mb-6">Edit Profile Here</h5>
+      <h5 className="text-xl font-semibold mb-6">Profil</h5>
       <hr className="border-t-1 border-black -mt-4 mb-5" />
       <div className="flex items-center mb-6">
         <div className="relative">
@@ -136,13 +136,13 @@ const Profile = () => {
           onClick={handleCancel}
           className="px-4 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300"
         >
-          Cancel
+          Batal
         </button>
         <button
           type="submit"
           className="px-4 py-2 bg-primary text-white hover:bg-primary"
         >
-          Save
+          Simpan
         </button>
       </div>
     </form>
