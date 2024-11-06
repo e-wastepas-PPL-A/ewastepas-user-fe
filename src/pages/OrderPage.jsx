@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SideBar from "../components/SideBar";
-import OnGoing from "../Components/Order/OnGoing";
-import History from "../Components/Order/History";
+import SideBar from "@/components/SideBar";
+import OnGoing from "@/components/Order/OnGoing";
+import History from "@/components/Order/History";
 
 const OrderPage = () => {
   const [activeTab, setActiveTab] = useState("ongoing");
@@ -14,21 +14,19 @@ const OrderPage = () => {
           {/* buttons */}
           <div className="flex rounded-xl shadow">
             <button
-              className={`flex-1 text-center py-2 rounded-xl ${
-                activeTab === "ongoing"
-                  ? "text-white bg-primary font-semibold"
-                  : "text-gray-600"
-              }`}
+              className={`flex-1 text-center py-2 rounded-xl ${activeTab === "ongoing"
+                ? "text-white bg-primary font-semibold"
+                : "text-gray-600"
+                }`}
               onClick={() => setActiveTab("ongoing")}
             >
               On Going
             </button>
             <button
-              className={`flex-1 text-center py-2 rounded-xl ${
-                activeTab === "history"
-                  ? "text-white bg-primary font-semibold"
-                  : "text-gray-600"
-              }`}
+              className={`flex-1 text-center py-2 rounded-xl ${activeTab === "history"
+                ? "text-white bg-primary font-semibold"
+                : "text-gray-600"
+                }`}
               onClick={() => setActiveTab("history")}
             >
               History
