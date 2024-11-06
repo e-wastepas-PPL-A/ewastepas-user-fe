@@ -17,6 +17,9 @@ export default {
           "2xl": "6rem",
         },
       },
+      maxWidth: {
+        "screen-xl": "1130px",
+      },
     },
   },
   plugins: [],
