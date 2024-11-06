@@ -7,12 +7,12 @@ const OrderPage = () => {
   const [activeTab, setActiveTab] = useState("ongoing");
 
   return (
-    <div className="flex p-10 min-h-screen pt-36">
+    <div className="flex mr-10 p-10 min-h-screen pt-36">
       <SideBar />
       <div className="ml-8 w-full">
-        <div className="bg-white p-6 rounded-xl shadow-xl">
-          {/* Tab buttons */}
-          <div className="flex">
+        <div className="bg-white p-6 rounded-xl shadow">
+          {/* buttons */}
+          <div className="flex rounded-xl shadow">
             <button
               className={`flex-1 text-center py-2 rounded-xl ${
                 activeTab === "ongoing"
