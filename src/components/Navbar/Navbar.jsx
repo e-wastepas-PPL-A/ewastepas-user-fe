@@ -3,6 +3,7 @@ import { PiShoppingCartLight } from "react-icons/pi";
 import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { NavLink } from "react-router-dom";
+import AvatarDropdown from "../AvatarDropdown";
 
 export const NavbarLinks = [
   {
@@ -76,7 +77,11 @@ const Navbar = () => {
                 Registrasi
               </button>
             </NavLink>
+            <div className="flex justify-end p-4">
+              <AvatarDropdown />
+            </div>
           </div>
+
           {/* Mobile hamburger menu Section */}
           <div className="md:hidden" onClick={() => setOpen(!open)}>
             <MdMenu className="text-4xl" />

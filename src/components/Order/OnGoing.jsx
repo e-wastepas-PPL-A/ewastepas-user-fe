@@ -50,7 +50,7 @@ const OnGoing = () => {
         return (
           <div
             key={order.orderId}
-            className="bg-white p-6 rounded-lg shadow-md w-full"
+            className="bg-white p-6 rounded-lg shadow w-full"
           >
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-semibold">Order ID#{order.orderId}</h3>
@@ -69,7 +69,7 @@ const OnGoing = () => {
                     alt={product.title}
                     className="w-40 object-contain"
                   />
-                  <span className="mr-[400px] font-semibold">
+                  <span className="mr-[300px] font-semibold">
                     {product.title}
                   </span>
                   <span>

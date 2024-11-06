@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import SearchBar from "../SearchBar";
+import {
+  FcAlphabeticalSortingAz,
+  FcAlphabeticalSortingZa,
+} from "react-icons/fc";
 
 const historyData = [
   {
@@ -39,52 +44,94 @@ const historyData = [
 ];
 
 const History = () => {
-  return (
-    <div className="space-y-6">
-      {historyData.map((order) => {
-        const totalPoints = order.products.reduce(
-          (total, product) => total + product.points * product.quantity,
-          0
-        );
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isAscending, setIsAscending] = useState(true);
 
-        return (
-          <div
-            key={order.orderId}
-            className="bg-white p-6 rounded-lg shadow-md w-full"
-          >
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold">Order ID#{order.orderId}</h3>
-              <span className="bg-green-300 text-gray-700 font-semibold px-3 py-1 rounded-full">
-                {order.status}
-              </span>
-            </div>
-            {order.products.map((product) => (
-              <div key={product.id} className="border-t border-b py-4">
-                <div className="flex justify-between items-center">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-40 object-contain"
-                  />
-                  <span className="mr-[400px] font-semibold">
-                    {product.title}
-                  </span>
-                  <span>
-                    {product.quantity} x {product.points} Points
-                  </span>
-                </div>
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const toggleSortOrder = () => {
+    setIsAscending(!isAscending);
+  };
+
+  const sortedData = [...historyData].sort((a, b) => {
+    if (isAscending) {
+      return a.date > b.date ? 1 : -1;
+    } else {
+      return a.date < b.date ? 1 : -1;
+    }
+  });
+
+  const filteredData = sortedData.filter((order) =>
+    order.products.some((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
+  return (
+    <>
+      <div className=" flex items-center justify-center mb-4 space-x-2 max-w-lg mx-auto">
+        <div className="flex-grow">
+          <SearchBar onSearch={handleSearch} />
+        </div>
+        <button
+          onClick={toggleSortOrder}
+          className="text-gray-600 cursor-pointer"
+        >
+          {isAscending ? (
+            <FcAlphabeticalSortingAz size={24} />
+          ) : (
+            <FcAlphabeticalSortingZa size={24} />
+          )}
+        </button>
+      </div>
+      <div className="space-y-6">
+        {filteredData.map((order) => {
+          const totalPoints = order.products.reduce(
+            (total, product) => total + product.points * product.quantity,
+            0
+          );
+
+          return (
+            <div
+              key={order.orderId}
+              className="bg-white p-6 rounded-lg shadow w-full"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-semibold">Order ID#{order.orderId}</h3>
+                <span className="bg-green-300 text-gray-700 font-semibold px-3 py-1 rounded-full">
+                  {order.status}
+                </span>
               </div>
-            ))}
-            <div className="flex justify-between items-center mt-4">
-              <span>{order.date}</span>
-              <span className="font-semibold">
-                Total Points: {totalPoints} Points
-              </span>
+              {order.products.map((product) => (
+                <div key={product.id} className="border-t border-b py-4">
+                  <div className="flex justify-between items-center">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-40 object-contain"
+                    />
+                    <span className="mr-[300px] font-semibold">
+                      {product.title}
+                    </span>
+                    <span>
+                      {product.quantity} x {product.points} Points
+                    </span>
+                  </div>
+                </div>
+              ))}
+              <div className="flex justify-between items-center mt-4">
+                <span>{order.date}</span>
+                <span className="font-semibold">
+                  Total Points: {totalPoints} Points
+                </span>
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

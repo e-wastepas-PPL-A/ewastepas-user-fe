@@ -2,7 +2,7 @@ import CardSlider from "../components/Category/CardSlider";
 import CardProduct from "../components/Category/CardProduct";
 import SearchBar from "../components/SearchBar";
 
-export default function HomePage() {
+export default function CategoryPage() {
   return (
     <>
       <div className="pt-20">

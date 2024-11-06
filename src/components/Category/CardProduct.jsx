@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Modal from "../Modal"; // Import the Modal component
+import Modal from "../Modal";
 
 // Data products
 const productsData = [

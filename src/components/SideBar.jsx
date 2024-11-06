@@ -1,10 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom"; // Change to NavLink
-import { FaUser, FaFileAlt, FaBox } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { FaUser, FaFileAlt } from "react-icons/fa";
 
 const SideBar = () => {
   return (
-    <div className="w-64 p-4 rounded-lg shadow-xl">
+    <div className="w-64 ml-10 h-48 p-4 rounded-lg border shadow">
       <div className="flex items-center mb-8">
         <div className="bg-gray-300 w-10 h-10 rounded-full flex items-center justify-center">
           <FaUser className="text-xl" />
@@ -36,19 +36,6 @@ const SideBar = () => {
           >
             <FaFileAlt className="text-lg" />
             <span className="ml-2">My Order</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/lorem"
-            className={({ isActive }) =>
-              `flex items-center cursor-pointer hover:text-primary ${
-                isActive ? "text-primary font-bold" : ""
-              }`
-            }
-          >
-            <FaBox className="text-lg" />
-            <span className="ml-2">Lorem</span>
           </NavLink>
         </li>
       </ul>
