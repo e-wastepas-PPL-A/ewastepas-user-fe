@@ -14,7 +14,7 @@ const SideBar = () => {
       <ul>
         <li className="mb-4">
           <NavLink
-            to="/profile"
+            to="/ProfilePage"
             className={({ isActive }) =>
               `flex items-center cursor-pointer hover:text-primary ${
                 isActive ? "text-primary font-bold" : ""
@@ -36,19 +36,6 @@ const SideBar = () => {
           >
             <FaFileAlt className="text-lg" />
             <span className="ml-2">My Order</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/lorem"
-            className={({ isActive }) =>
-              `flex items-center cursor-pointer hover:text-primary ${
-                isActive ? "text-primary font-bold" : ""
-              }`
-            }
-          >
-            <FaBox className="text-lg" />
-            <span className="ml-2">Lorem</span>
           </NavLink>
         </li>
       </ul>

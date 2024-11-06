@@ -42,6 +42,7 @@ function RegisterPage() {
             <form onSubmit={handleSubmit}>
               <InputText
                 id="name"
+                type={"text"}
                 label={"Nama Pengguna"}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
