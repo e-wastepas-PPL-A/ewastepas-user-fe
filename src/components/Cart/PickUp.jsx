@@ -12,7 +12,9 @@ const PickUp = () => {
       <div className="border-b border-gray-300 py-2">
         <label className="inline-flex items-center">
           <input type="checkbox" className="form-checkbox" />
-          <span className="ml-2">Select All (0)</span>
+          <span className="ml-2">
+            Pilih Semua <span className="text-gray-400"> (0)</span>
+          </span>
         </label>
       </div>
 

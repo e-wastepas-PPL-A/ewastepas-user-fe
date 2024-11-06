@@ -8,41 +8,55 @@ const productsData = [
     title: "Laptop",
     points: 30,
     image: "/images/kulkas.png",
-    bgImage: "/images/bg.jpg",
+    bgImage: "/images/pattern.jpg",
+  },
+  {
+    title: "Laptop",
+    points: 30,
+    image: "/images/kulkas.png",
+    bgImage: "/images/pattern.jpg",
+  },
+  {
+    title: "Laptop",
+    points: 30,
+    image: "/images/kulkas.png",
+    bgImage: "/images/pattern.jpg",
   },
 ];
 
 const Card = ({ title, points, image, bgImage, onAddToCart }) => {
   return (
-    <div className="bg-white shadow-lg rounded-xl overflow-hidden w-80 flex flex-col items-center">
-      {/* Background*/}
-      <div
-        className="relative w-full h-52"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Image Sampah */}
-        <img
-          src={image}
-          alt={title}
-          className="absolute top-8 left-1/2 transform -translate-x-1/2 w-44 h-40 object-contain z-10"
-        />
+    <div className="w-full mx-3">
+      <div className="bg-white shadow-lg rounded-xl overflow-hidden w-64 flex flex-col items-center">
+        {/* Background*/}
+        <div
+          className="relative w-full h-52"
+          style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Image Sampah */}
+          <img
+            src={image}
+            alt={title}
+            className="absolute top-5 left-1/2 transform -translate-x-1/2 w-44 h-44 object-contain z-10"
+          />
+        </div>
+        {/* Title dan poin */}
+        <div className="text-center mt-6 px-6">
+          <h3 className="text-xl font-bold text-gray-800">{title}</h3>
+          <p className="text-primary text-lg font-medium">{points} Points</p>
+        </div>
+        {/* Button Add to Cart */}
+        <button
+          onClick={() => onAddToCart(title)} // Call the handler passed from parent
+          className="flex items-center justify-center bg-primary font-semibold text-white rounded-full mt-2 mb-4 w-56 py-2 shadow-md transform transition-transform duration-200 hover:scale-105"
+        >
+          Masukkan ke keranjang
+        </button>
       </div>
-      {/* Title dan poin */}
-      <div className="text-center mt-6 px-6">
-        <h3 className="text-xl font-bold text-gray-800">{title}</h3>
-        <p className="text-primary text-lg font-medium">{points} Points</p>
-      </div>
-      {/* Button Add to Cart */}
-      <button
-        onClick={() => onAddToCart(title)} // Call the handler passed from parent
-        className="flex items-center justify-center bg-primary font-semibold text-white rounded-full mt-6 mb-6 w-72 py-3 shadow-md transform transition-transform duration-200 hover:scale-105"
-      >
-        Add to Cart
-      </button>
     </div>
   );
 };
@@ -77,7 +91,7 @@ const CardProduct = () => {
       </div>
       {modalVisible && (
         <Modal
-          title={`${selectedProduct} has been added to the cart!`}
+          title={`${selectedProduct} telah dimasukkan ke keranjang`}
           onClose={closeModal}
         />
       )}

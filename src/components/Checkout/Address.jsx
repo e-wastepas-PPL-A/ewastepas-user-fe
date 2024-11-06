@@ -6,7 +6,7 @@ const Address = () => {
     <div>
       <div className="flex text-primary">
         <FaLocationDot className="mr-2 mt-1" />
-        <h2 className="text-xl font-bold mb-2">Pick-up Address</h2>
+        <h2 className="text-lg font-bold mb-2">Alamat Pengiriman</h2>
       </div>
       <div className="p-4 bg-gray-100 rounded-md">
         <p className="font-bold">Aufaa Husniati</p>
@@ -16,7 +16,7 @@ const Address = () => {
         </p>
         <div className="mt-4 space-x-2">
           <button className="text-sm font-semibold text-blue-600">
-            Change Address
+            Ganti Alamat
           </button>
         </div>
       </div>

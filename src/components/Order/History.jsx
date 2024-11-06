@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import SearchBar from "../SearchBar";
-import {
-  FcAlphabeticalSortingAz,
-  FcAlphabeticalSortingZa,
-} from "react-icons/fc";
+import { FaSortAmountDownAlt, FaSortAmountUp } from "react-icons/fa";
 
 const historyData = [
   {
     orderId: "202411210001",
-    date: "21-November-2024",
-    status: "Completed",
+    date: "21 November 2024",
+    status: "Selesai",
     products: [
       {
         id: 1,
@@ -22,8 +19,8 @@ const historyData = [
   },
   {
     orderId: "202411200002",
-    date: "20-November-2024",
-    status: "Completed",
+    date: "20 November 2024",
+    status: "Selesai",
     products: [
       {
         id: 2,
@@ -56,11 +53,10 @@ const History = () => {
   };
 
   const sortedData = [...historyData].sort((a, b) => {
-    if (isAscending) {
-      return a.date > b.date ? 1 : -1;
-    } else {
-      return a.date < b.date ? 1 : -1;
-    }
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    return isAscending ? dateA - dateB : dateB - dateA;
   });
 
   const filteredData = sortedData.filter((order) =>
@@ -71,7 +67,7 @@ const History = () => {
 
   return (
     <>
-      <div className=" flex items-center justify-center mb-4 space-x-2 max-w-lg mx-auto">
+      <div className="flex items-center justify-center mb-4 space-x-2 max-w-lg mx-auto">
         <div className="flex-grow">
           <SearchBar onSearch={handleSearch} />
         </div>
@@ -80,9 +76,9 @@ const History = () => {
           className="text-gray-600 cursor-pointer"
         >
           {isAscending ? (
-            <FcAlphabeticalSortingAz size={24} />
+            <FaSortAmountUp size={24} />
           ) : (
-            <FcAlphabeticalSortingZa size={24} />
+            <FaSortAmountDownAlt size={24} />
           )}
         </button>
       </div>

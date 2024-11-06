@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white py-10">
+    <footer className="bg-sky-950 text-white py-10">
       <div className="container mx-auto flex justify-between">
         <div>
-          <h2 className="text-2xl md:text-4xl font-bold mb-4">
+          <h2 className="text-xl md:text-2xl font-bold mb-4">
             Siap Mengelola Sampah Elektronik Anda?
           </h2>
           <p className="text-sm md:text-lg mb-6 max-w-xl">
@@ -65,8 +65,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto text-center mt-8 border-t border-gray-300  pt-5 ">
-        <h5 className="text-sm font-semibold">Copyright © 2024 ewhale.</h5>
+      <div className="container mx-auto text-center mt-4 border-t border-gray-300 pt-4">
+        <h5 className="text-sm font-semibold -mb-4">
+          Copyright © 2024 ewhale.
+        </h5>
       </div>
     </footer>
   );

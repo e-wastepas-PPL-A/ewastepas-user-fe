@@ -7,7 +7,7 @@ import AvatarDropdown from "../AvatarDropdown";
 
 export const NavbarLinks = [
   {
-    name: "Home",
+    name: "Beranda",
     link: "/",
   },
   {
@@ -15,11 +15,11 @@ export const NavbarLinks = [
     link: "/CategoryPage",
   },
   {
-    name: "About Us",
+    name: "Tentang Kami",
     link: "/AboutPage",
   },
   {
-    name: "Contact",
+    name: "Kontak",
     link: "/ContactPage",
   },
 ];
