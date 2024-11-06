@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InputText from "../Input/InputText";
+import InputEmail from "../Input/InputEmail";
 import { FaPenToSquare } from "react-icons/fa6";
 
 const Profile = () => {
@@ -16,6 +17,9 @@ const Profile = () => {
   const [nomorTelepon, setNomorTelepon] = useState(initialValues.nomorTelepon);
   const [tanggalLahir, setTanggalLahir] = useState(initialValues.tanggalLahir);
   const [alamat, setAlamat] = useState(initialValues.alamat);
+  const [profilePhoto, setProfilePhoto] = useState(
+    "../../../public/images/profile.png" 
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,13 +27,25 @@ const Profile = () => {
   };
 
   const handleCancel = () => {
-    // Reset form values to initial values
     setNama(initialValues.nama);
     setEmail(initialValues.email);
     setNomorTelepon(initialValues.nomorTelepon);
     setTanggalLahir(initialValues.tanggalLahir);
     setAlamat(initialValues.alamat);
+    setProfilePhoto("../../../public/images/profile.png"); 
     console.log("Changes discarded, form reset to initial values");
+  };
+
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setProfilePhoto(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -43,22 +59,31 @@ const Profile = () => {
         <div className="relative">
           <div className="w-32 h-32 rounded-full overflow-hidden">
             <img
-              src="../../../public/images/profile.png"
+              src={profilePhoto}
               alt="Profile"
               className="w-full h-full object-cover"
             />
           </div>
-          {/* Edit Icon Overlay */}
-          <button className="absolute bottom-0 right-0 bg-primary text-white p-1 rounded-full hover:bg-primary">
+          <label
+            htmlFor="photoInput"
+            className="absolute bottom-0 right-0 bg-primary text-white p-1 rounded-full cursor-pointer hover:bg-primary"
+          >
             <FaPenToSquare size={20} />
-          </button>
+          </label>
+          <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+            className="hidden"
+            onChange={handlePhotoChange}
+          />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <InputText
             id="nama"
-            type={"text"}
+            type="text"
             label={"Nama"}
             value={nama}
             onChange={(e) => setNama(e.target.value)}
@@ -66,9 +91,8 @@ const Profile = () => {
           />
         </div>
         <div>
-          <InputText
+          <InputEmail
             id="email"
-            type={"text"}
             label={"Email"}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +102,7 @@ const Profile = () => {
         <div>
           <InputText
             id="nomorTelepon"
-            type={"text"}
+            type="text"
             label={"Nomor Telepon"}
             value={nomorTelepon}
             onChange={(e) => setNomorTelepon(e.target.value)}
@@ -88,7 +112,7 @@ const Profile = () => {
         <div>
           <InputText
             id="tanggalLahir"
-            type={"date"}
+            type="date"
             label={"Tanggal Lahir"}
             value={tanggalLahir}
             onChange={(e) => setTanggalLahir(e.target.value)}
@@ -98,7 +122,7 @@ const Profile = () => {
         <div className="col-span-2">
           <InputText
             id="alamat"
-            type={"text"}
+            type="text"
             label={"Alamat"}
             value={alamat}
             onChange={(e) => setAlamat(e.target.value)}
