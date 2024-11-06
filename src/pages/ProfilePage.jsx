@@ -20,7 +20,7 @@ const ProfilePage = () => {
                   : "text-gray-600 border-b"
               } rounded-t-lg`}
             >
-              My Profile
+              Profil
             </button>
             <button
               onClick={() => setActiveTab("changePassword")}
@@ -30,7 +30,7 @@ const ProfilePage = () => {
                   : "text-gray-600 border-b"
               } rounded-t-lg`}
             >
-              Change Password
+              Ubah Kata Sandi
             </button>
           </div>
 
