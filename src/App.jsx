@@ -8,8 +8,10 @@ import OrderPage from "./pages/OrderPage";
 
 // auth import
 import RegisterPage from "./pages/RegisterPage";
+import OtpPage from "./pages/OtpPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import NewPasswordPage from "./pages/NewPasswordPage";
 import ProfilePage from "./pages/ProfilePage";
 
 function App() {
@@ -23,8 +25,10 @@ function App() {
           <Route path="CartPage" element={<CartPage />} />
           <Route path="OrderPage" element={<OrderPage />} />
           <Route path="RegisterPage" element={<RegisterPage />} />
+          <Route path="OtpPage" element={<OtpPage />} />
           <Route path="LoginPage" element={<LoginPage />} />
           <Route path="ForgotPasswordPage" element={<ForgotPasswordPage />} />
+          <Route path="NewPasswordPage" element={<NewPasswordPage />} />
           <Route path="ProfilePage" element={<ProfilePage />} />
         </Route>
       </Routes>

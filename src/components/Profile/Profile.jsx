@@ -18,7 +18,7 @@ const Profile = () => {
   const [tanggalLahir, setTanggalLahir] = useState(initialValues.tanggalLahir);
   const [alamat, setAlamat] = useState(initialValues.alamat);
   const [profilePhoto, setProfilePhoto] = useState(
-    "../../../public/images/profile.png" 
+    "/images/profile.png" 
   );
 
   const handleSubmit = (e) => {
@@ -32,7 +32,7 @@ const Profile = () => {
     setNomorTelepon(initialValues.nomorTelepon);
     setTanggalLahir(initialValues.tanggalLahir);
     setAlamat(initialValues.alamat);
-    setProfilePhoto("../../../public/images/profile.png"); 
+    setProfilePhoto("/images/profile.png"); 
     console.log("Changes discarded, form reset to initial values");
   };
 

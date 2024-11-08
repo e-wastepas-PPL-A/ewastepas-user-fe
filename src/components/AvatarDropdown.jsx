@@ -42,7 +42,7 @@ function AvatarDropdown() {
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white"
             onClick={closeDropdown}
           >
-            Logout
+            Keluar
           </Link>
         </div>
       )}
