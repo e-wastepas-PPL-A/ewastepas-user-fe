@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/style.css";
 import InputText from "../components/Input/InputText";
 import InputEmail from "../components/Input/InputEmail";
@@ -11,6 +12,7 @@ function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ function RegisterPage() {
       return;
     }
     console.log({ name, email, password, confirmPassword });
+    navigate("/OtpPage", { state: { from: "RegisterPage" } });
   };
 
   return (
@@ -26,11 +29,11 @@ function RegisterPage() {
       <div className="container px-4 py-16 mx-32 mt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="w-4/5">
-            <img src="/public/images/register.png" alt="Registrasi" />
+            <img src="/images/register.png" alt="Registrasi" />
           </div>
           <div className="p-6 w-full max-w-md">
             <div className="flex justify-center mb-10 -mt-10">
-              <img src="/public/images/logo.png" alt="Logo" className="w-64" />
+              <img src="/images/logo.png" alt="Logo" className="w-64" />
             </div>
             <h1 className="text-4xl font-bold mb-4 -mt-5 text-gray-800">
               Registrasi

@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/style.css";
 import InputEmail from "../components/Input/InputEmail";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log({ email });
+    navigate("/OtpPage", { state: { from: "ForgotPasswordPage" } });
   };
 
   return (
@@ -17,11 +20,11 @@ function ForgotPasswordPage() {
       <div className="container px-4 py-16 mx-32 mt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="w-4/5">
-            <img src="/public/images/forgot.png" alt="Registrasi" />
+            <img src="/images/forgot.png" alt="Registrasi" />
           </div>
           <div className="p-6 w-full max-w-md">
             <div className="flex justify-center mb-10 -mt-10">
-              <img src="/public/images/Logo.png" alt="Logo" className="w-64" />
+              <img src="/images/logo.png" alt="Logo" className="w-64" />
             </div>
             <h1 className="text-4xl font-bold mb-4 -mt-5 text-gray-800">
               Lupa Kata Sandi
