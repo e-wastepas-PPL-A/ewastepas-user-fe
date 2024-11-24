@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiChevronDown } from "react-icons/fi"; // Import the dropdown icon
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"; // Import both icons
 
 function AvatarDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +14,13 @@ function AvatarDropdown() {
         <img
           src="/images/hikel.jpg"
           alt="User Avatar"
-          className="w-10 h-10 rounded-full"
+          className="w-11 h-11 border-2 border-primary rounded-full"
         />
-        <FiChevronDown className="text-gray-600" />
-        {/* Add dropdown icon here */}
+        {isOpen ? (
+          <FiChevronUp className="text-gray-600" />
+        ) : (
+          <FiChevronDown className="text-gray-600" />
+        )}
       </button>
 
       {/* Dropdown Menu */}

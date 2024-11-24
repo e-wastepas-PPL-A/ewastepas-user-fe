@@ -1,8 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FaUser, FaFileAlt } from "react-icons/fa";
 
 const SideBar = () => {
+  const location = useLocation();
+
+  // Debugging: Log lokasi URL saat ini
+  console.log("Current Location:", location.pathname);
+
   return (
     <div className="w-64 ml-10 h-48 p-4 rounded-lg border shadow">
       <div className="flex items-center mb-8">
@@ -28,9 +33,12 @@ const SideBar = () => {
         <li className="mb-4">
           <NavLink
             to="/OrderPage"
-            className={({ isActive }) =>
+            className={() =>
               `flex items-center cursor-pointer hover:text-primary ${
-                isActive ? "text-primary font-bold" : ""
+                location.pathname.startsWith("/OrderPage") ||
+                location.pathname.startsWith("/TrackPage")
+                  ? "text-primary font-bold"
+                  : ""
               }`
             }
           >

@@ -6,26 +6,15 @@ import { NavLink } from "react-router-dom";
 import AvatarDropdown from "../AvatarDropdown";
 
 export const NavbarLinks = [
-  {
-    name: "Beranda",
-    link: "/",
-  },
-  {
-    name: "Pick & Pack",
-    link: "/CategoryPage",
-  },
-  {
-    name: "Tentang Kami",
-    link: "/AboutPage",
-  },
-  {
-    name: "Kontak",
-    link: "/ContactPage",
-  },
+  { name: "Beranda", link: "/" },
+  { name: "Pick & Pack", link: "/CategoryPage" },
+  { name: "Tentang Kami", link: "/AboutPage" },
+  { name: "Kontak", link: "/ContactPage" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
+
   return (
     <>
       <nav className="bg-white shadow-sm">
@@ -37,12 +26,13 @@ const Navbar = () => {
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
               <img
-                src="/public/images/logo.png"
+                src="/images/logoKecil.png"
                 className="h-8"
                 alt="EwhaleLogo"
               />
             </a>
           </div>
+
           {/* Menu Section */}
           <div className="hidden md:block">
             <ul className="flex items-center gap-5">
@@ -62,6 +52,7 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
+
           {/* Icons Section */}
           <div className="flex items-center gap-9">
             <NavLink to="CartPage">
@@ -89,7 +80,7 @@ const Navbar = () => {
         </div>
       </nav>
       {/* Mobile Sidebar Section */}
-      <ResponsiveMenu open={open} />
+      <ResponsiveMenu open={open} setOpen={setOpen} />
     </>
   );
 };

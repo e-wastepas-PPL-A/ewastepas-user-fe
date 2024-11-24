@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ordersData = [
   {
@@ -22,23 +23,13 @@ const ordersData = [
       },
     ],
   },
-  {
-    orderId: "202411230006",
-    date: "23 November 2024",
-    status: "Sedang di Proses",
-    products: [
-      {
-        id: 3,
-        title: "Microwave",
-        points: 30,
-        quantity: 2,
-        image: "/images/kulkas.png",
-      },
-    ],
-  },
 ];
 
 const OnGoing = () => {
+  const navigate = useNavigate();
+
+  console.log("Rendering OnGoing component"); // debugging
+
   return (
     <div className="space-y-6">
       {ordersData.map((order) => {
@@ -50,13 +41,17 @@ const OnGoing = () => {
         return (
           <div
             key={order.orderId}
-            className="bg-white p-6 rounded-lg shadow w-full"
+            className="p-6 rounded-lg shadow border border-gray-300"
           >
             <div className="flex justify-between items-center mb-4">
               <h3 className="font-semibold">Order ID#{order.orderId}</h3>
-              <button className="text-primary font-semibold ml-[300px]">
+              <button
+                className="text-primary font-semibold ml-[300px]"
+                onClick={() => navigate(`/TrackPage/${order.orderId}`)}
+              >
                 Track
               </button>
+
               <span className="bg-yellow-300 text-gray-700 font-semibold px-3 py-1 rounded-full">
                 {order.status}
               </span>
