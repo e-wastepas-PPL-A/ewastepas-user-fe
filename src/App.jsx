@@ -5,6 +5,7 @@ import CategoryPage from "./pages/CategoryPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CartPage from "./pages/CartPage";
 import OrderPage from "./pages/OrderPage";
+import TrackPage from "./pages/TrackPage";
 
 // auth import
 import RegisterPage from "./pages/RegisterPage";
@@ -24,6 +25,8 @@ function App() {
           <Route path="CheckoutPage" element={<CheckoutPage />} />
           <Route path="CartPage" element={<CartPage />} />
           <Route path="OrderPage" element={<OrderPage />} />
+          <Route path="/TrackPage/:orderId" element={<TrackPage />} />
+
           <Route path="RegisterPage" element={<RegisterPage />} />
           <Route path="OtpPage" element={<OtpPage />} />
           <Route path="LoginPage" element={<LoginPage />} />

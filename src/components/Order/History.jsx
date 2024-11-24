@@ -17,27 +17,6 @@ const historyData = [
       },
     ],
   },
-  {
-    orderId: "202411200002",
-    date: "20 November 2024",
-    status: "Selesai",
-    products: [
-      {
-        id: 2,
-        title: "Vacuum Cleaner",
-        points: 80,
-        quantity: 1,
-        image: "/images/kulkas.png",
-      },
-      {
-        id: 3,
-        title: "Toaster",
-        points: 20,
-        quantity: 1,
-        image: "/images/kulkas.png",
-      },
-    ],
-  },
 ];
 
 const History = () => {
@@ -92,7 +71,7 @@ const History = () => {
           return (
             <div
               key={order.orderId}
-              className="bg-white p-6 rounded-lg shadow w-full"
+              className="p-6 rounded-lg shadow border border-gray-300"
             >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="font-semibold">Order ID#{order.orderId}</h3>
