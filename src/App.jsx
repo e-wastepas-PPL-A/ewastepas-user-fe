@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./pages/Layouts/AppLayout";
+import AuthLayout from "./pages/Layouts/AuthLayout";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -26,13 +27,14 @@ function App() {
           <Route path="CartPage" element={<CartPage />} />
           <Route path="OrderPage" element={<OrderPage />} />
           <Route path="/TrackPage/:orderId" element={<TrackPage />} />
-
+          <Route path="ProfilePage" element={<ProfilePage />} />
+        </Route>
+        <Route path="/" element={<AuthLayout />}>
           <Route path="RegisterPage" element={<RegisterPage />} />
           <Route path="OtpPage" element={<OtpPage />} />
           <Route path="LoginPage" element={<LoginPage />} />
           <Route path="ForgotPasswordPage" element={<ForgotPasswordPage />} />
           <Route path="NewPasswordPage" element={<NewPasswordPage />} />
-          <Route path="ProfilePage" element={<ProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
