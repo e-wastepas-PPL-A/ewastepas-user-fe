@@ -1,21 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi"; // Import both icons
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 function AvatarDropdown() {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   const closeDropdown = () => setIsOpen(false);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative inline-block">
-      <button onClick={toggleDropdown} className="flex items-center space-x-2">
-        <img
-          src="/images/hikel.jpg"
-          alt="User Avatar"
-          className="w-11 h-11 border-2 border-primary rounded-full"
-        />
+    <div className="relative inline-block" ref={dropdownRef}>
+      {/* Avatar Button */}
+      <button
+        onClick={toggleDropdown}
+        className="flex items-center space-x-2"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+      >
+        <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-primary rounded-full">
+          <img
+            src="/images/hikel.jpg"
+            alt="User Avatar"
+            className="object-cover w-full h-full rounded-full"
+          />
+        </div>
         {isOpen ? (
           <FiChevronUp className="text-gray-600" />
         ) : (
@@ -28,21 +51,21 @@ function AvatarDropdown() {
         <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
           <Link
             to="/ProfilePage"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white transition"
             onClick={closeDropdown}
           >
             Profil
           </Link>
           <Link
             to="/OrderPage"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white transition"
             onClick={closeDropdown}
           >
             Order
           </Link>
           <Link
             to="/logout"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary hover:font-semibold hover:text-white transition"
             onClick={closeDropdown}
           >
             Keluar

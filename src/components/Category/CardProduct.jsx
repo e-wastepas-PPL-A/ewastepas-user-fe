@@ -101,7 +101,7 @@ const CardProduct = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <p className="text-lg font-medium">
+            <p className="sm:text-lg text-base font-medium">
               E-waste berhasil dimasukkan ke keranjang
             </p>
           </div>
