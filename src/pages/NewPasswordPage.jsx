@@ -19,7 +19,7 @@ function NewPasswordPage() {
   };
 
   return (
-    <div className="container px-1 mt-28 md:mt-14 lg:mt-14 xl:mt-14">
+    <div className="container px-1 mt-28 md:mt-14 lg:mt-14 xl:mt-14 flex justify-center md:items-center">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-8 lg:gap-7 md:gap-6 xl:mx-8 lg:mx-6 ">
         <div className="hidden xl:block lg:block md:block md:my-8 md:mx-4 md:w-90 xl:w-100 xl:my-5 lg:w-95 lg:my-5">
           <img src="/images/register.png" alt="Registrasi" />
@@ -27,7 +27,7 @@ function NewPasswordPage() {
         <div className="p-6 w-full max-w-md">
           <div className="flex justify-center mb-8 -mt-10">
             <img
-              src="/images/logo.png"
+              src="/images/logo1.png"
               alt="Logo"
               className="w-52 md:w-56 xl:w-64"
             />
