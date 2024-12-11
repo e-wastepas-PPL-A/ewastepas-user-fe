@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/Bar/SideBar";
 import StatusOrder from "../components/Track/StatusOrder";
 import CourierInfo from "../components/Track/CourierInfo";
 import Address from "../components/Track/Address";

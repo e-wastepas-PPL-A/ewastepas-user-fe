@@ -24,7 +24,7 @@ const productsData = [
 const Card = ({ title, points, image, bgImage, onAddToCart }) => {
   return (
     <div className="w-full mx-3">
-      <div className="bg-white shadow-lg rounded-xl overflow-hidden w-64 flex flex-col items-center">
+      <div className="bg-white shadow-lg rounded-xl overflow-hidden w-80 sm:w-64 flex flex-col items-center">
         {/* Background */}
         <div
           className="relative w-full h-52 flex justify-center items-center"

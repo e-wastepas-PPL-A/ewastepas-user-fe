@@ -3,7 +3,7 @@ import { PiShoppingCartLight } from "react-icons/pi";
 import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { NavLink } from "react-router-dom";
-import AvatarDropdown from "../AvatarDropdown";
+import AvatarDropdown from "./AvatarDropdown";
 
 export const NavbarLinks = [
   { name: "Beranda", link: "/" },
@@ -22,14 +22,10 @@ const Navbar = () => {
           {/* Logo Section */}
           <div className="flex items-center py-6">
             <a
-              href="#"
+              href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img
-                src="/images/logoKecil.png"
-                className="h-8"
-                alt="EwhaleLogo"
-              />
+              <img src="/images/logo.png" className="h-8" alt="EwhaleLogo" />
             </a>
           </div>
 

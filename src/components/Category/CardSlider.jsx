@@ -73,7 +73,7 @@ const CardSlider = () => {
           ${isActive ? "scale-110" : "hover:scale-105"}`}
       >
         <div
-          className="relative w-full h-64 bg-cover bg-center rounded-xl shadow-lg"
+          className="relative w-80 mx-auto sm:w-full h-64 bg-cover bg-center rounded-xl shadow-lg"
           style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: "cover",
