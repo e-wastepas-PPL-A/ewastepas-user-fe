@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Profile from "../components/Profile/Profile";
 import ChangePasswordForm from "../components/Profile/ChangePassword";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/Bar/SideBar";
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState("profile");

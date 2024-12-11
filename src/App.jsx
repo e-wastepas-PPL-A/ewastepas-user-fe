@@ -1,4 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import AOS from "aos";
+// import "aos/dist/aos.css"; // Import file CSS AOS
+
 import AppLayout from "./pages/Layouts/AppLayout";
 import AuthLayout from "./pages/Layouts/AuthLayout";
 import HomePage from "./pages/HomePage";
@@ -7,6 +10,8 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CartPage from "./pages/CartPage";
 import OrderPage from "./pages/OrderPage";
 import TrackPage from "./pages/TrackPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 // auth import
 import RegisterPage from "./pages/RegisterPage";
@@ -28,6 +33,8 @@ function App() {
           <Route path="OrderPage" element={<OrderPage />} />
           <Route path="/TrackPage/:orderId" element={<TrackPage />} />
           <Route path="ProfilePage" element={<ProfilePage />} />
+          <Route path="AboutPage" element={<AboutPage />} />
+          <Route path="ContactPage" element={<ContactPage />} />
         </Route>
         <Route path="/" element={<AuthLayout />}>
           <Route path="RegisterPage" element={<RegisterPage />} />

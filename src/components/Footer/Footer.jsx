@@ -1,7 +1,7 @@
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { FaInstagram, FaXTwitter, FaFacebook } from "react-icons/fa6";
-import { NavbarLinks } from "../components/Navbar/Navbar";
+import { NavbarLinks } from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
