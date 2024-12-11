@@ -1,8 +1,18 @@
 import React from "react";
-import Steps from "./Steps";
+import { BiTime } from "react-icons/bi";
+import { FaTruck } from "react-icons/fa";
+import { FiCheckCircle } from "react-icons/fi";
+import { MdDoneAll } from "react-icons/md";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const StatusOrder = ({ status, handleStatusChange }) => {
-  const steps = Steps();
+  const steps = [
+    { label: "Menunggu Penjemputan", icon: <BiTime /> },
+    { label: "Dalam Perjalanan", icon: <FaTruck /> },
+    { label: "Sampah Telah Dijemput", icon: <FiCheckCircle /> },
+    { label: "Pesanan Selesai", icon: <MdDoneAll /> },
+    { label: "Penjemputan Gagal", icon: <AiOutlineCloseCircle /> },
+  ];
 
   return (
     <div className="flex items-center">

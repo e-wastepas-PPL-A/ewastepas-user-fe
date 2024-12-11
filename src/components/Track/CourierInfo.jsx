@@ -6,14 +6,11 @@ const CourierInfo = () => {
       <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden mb-4">
         <img
           src="/images/hikel.jpg"
-          name="Hikel Bahrul Hidayat"
-          alt="Foto Courier"
+          alt="Foto Kurir"
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="text-lg sm:text-xl font-semibold">
-        Hikel Bahrul Hidayat
-      </div>
+      <div className="text-lg sm:text-xl font-semibold">Nama Kurir</div>
     </div>
   );
 };
