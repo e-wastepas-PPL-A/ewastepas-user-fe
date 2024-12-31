@@ -44,13 +44,17 @@ const Card = ({ title, points, image, bgImage, onAddToCart }) => {
 
         {/* Title dan poin */}
         <div className="text-center mt-6 px-6">
-          <h3 className="text-xl font-bold text-gray-800">{title}</h3>
-          <p className="text-primary text-lg font-medium">{points} Points</p>
+          <h3 className="text-lg sm:text-xl font-bold text-gray-800">
+            {title}
+          </h3>
+          <p className="text-primary text-base sm:text-lg font-medium">
+            {points} Points
+          </p>
         </div>
         {/* Button Add to Cart */}
         <button
           onClick={onAddToCart}
-          className="flex items-center justify-center bg-primary font-semibold text-white rounded-full mt-2 mb-4 w-56 py-2 shadow-md transform transition-transform duration-200 hover:scale-105"
+          className="flex items-center justify-center bg-primary font-semibold text-white rounded-full mt-2 mb-4 w-52 sm:w-56 text-sm sm:text-base py-2 shadow-md transform transition-transform duration-200 hover:scale-105"
         >
           Masukkan ke keranjang
         </button>
