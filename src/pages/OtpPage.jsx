@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/style.css";
 import InputPassword from "../components/Input/InputPassword";
+import { verifyOtp } from "../utils/Api";
 
 function OtpPage() {
   const [otp, setOtp] = useState("");
@@ -10,22 +11,37 @@ function OtpPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { from } = location.state || { from: "RegisterPage" };
+  const { from, email } = location.state || { from: "RegisterPage", email: "" };
+  if (!email) {
+    console.error("Email not found in location state");
+  }
 
-  // OTP valid
-  const validOtp = "123456";
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    console.log("Attempting OTP verification with:", email, otp);
+    const response = await verifyOtp(email, otp);
+    console.log("Server response:", response);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (otp === validOtp) {
+    if (response.message.includes("berhasil diverifikasi")) {
       setAlertType("success");
       setShowAlert(true);
     } else {
       setAlertType("error");
       setShowAlert(true);
     }
-  };
+  } catch (error) {
+    console.error(
+      "Error during OTP verification:",
+      error.response ? error.response.data : error.message
+    );
+    setAlertType("error");
+    setShowAlert(true);
+  }
+};
+
+
+
 
   const closeAlert = () => {
     setShowAlert(false);
@@ -110,7 +126,7 @@ function OtpPage() {
             <div className="text-center">
               <button
                 onClick={closeAlert}
-                className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark"
+                className="bg-primary text-white py-2 px-4 hover:bg-primary-dark"
               >
                 {alertType === "success" ? "Masuk Sekarang" : "Coba Lagi"}
               </button>

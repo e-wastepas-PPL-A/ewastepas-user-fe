@@ -4,6 +4,7 @@ import "../styles/style.css";
 import InputText from "../components/Input/InputText";
 import InputEmail from "../components/Input/InputEmail";
 import InputPassword from "../components/Input/InputPassword";
+import { Register } from "../utils/Api";
 import { FcGoogle } from "react-icons/fc";
 
 function RegisterPage() {
@@ -15,6 +16,9 @@ function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [serverError, setServerError] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(true); 
+
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState({
@@ -25,11 +29,8 @@ function RegisterPage() {
     agreeToTerms: "",
   });
 
-  const [isPasswordValid, setIsPasswordValid] = useState(true); // Default as valid
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     setErrors({
       name: "",
       email: "",
@@ -37,6 +38,7 @@ function RegisterPage() {
       confirmPassword: "",
       agreeToTerms: "",
     });
+    setServerError(""); 
 
     let hasError = false;
 
@@ -83,10 +85,25 @@ function RegisterPage() {
 
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      const data = await Register(name, email, password, confirmPassword);
+      console.log(data);
+
       setLoading(false);
       setShowAlert(true);
-    }, 2000);
+    } catch (error) {
+      console.error("Error:", error);
+      setLoading(false);
+
+      if (
+        error.response &&
+        error.response.data.message === "Email sudah digunakan"
+      ) {
+        setServerError("Email sudah digunakan. Silakan gunakan email lain.");
+      } else {
+        setServerError("Terjadi kesalahan, silakan coba lagi.");
+      }
+    }
   };
 
   const closeAlert = () => {
@@ -98,7 +115,7 @@ function RegisterPage() {
   const isValidLength = password.length >= 8 && password.length <= 20;
   const hasUppercase = /[A-Z]/.test(password);
   const hasNumber = /\d/.test(password);
-  const hasSpecialChar = /[#!?$&@.]/.test(password);
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
   useEffect(() => {
     if (!isFocused && password) {
@@ -111,7 +128,7 @@ function RegisterPage() {
       } else {
         setErrors((prev) => ({
           ...prev,
-          password: "", 
+          password: "",
         }));
         setIsPasswordValid(true);
       }
@@ -131,7 +148,7 @@ function RegisterPage() {
     }
   }, [isFocused]);
 
-  // Pesan validasi password
+ 
   const validationMessage = (
     <div className="flex flex-col items-start text-sm mt-2">
       <p className="text-gray-700">
@@ -153,7 +170,6 @@ function RegisterPage() {
     </div>
   );
 
-  // Disable submit only if password is invalid or other errors exist
   const isSubmitDisabled =
     !isPasswordValid || Object.values(errors).some((error) => error);
 
@@ -179,6 +195,9 @@ function RegisterPage() {
           </h5>
 
           <form onSubmit={handleSubmit}>
+            {serverError && (
+              <div className="text-red-500 text-sm mt-4">{serverError}</div>
+            )}
             <InputText
               id="name"
               type={"text"}
@@ -230,7 +249,6 @@ function RegisterPage() {
             {errors.password && (
               <div className="text-red-500 text-sm mt-1">{errors.password}</div>
             )}
-            {/* Always show the validation message, conditionally styled */}
             {isFocused && validationMessage}
 
             <InputPassword
