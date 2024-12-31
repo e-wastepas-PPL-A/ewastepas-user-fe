@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { FaInstagram, FaXTwitter, FaFacebook } from "react-icons/fa6";
-import { NavbarLinks } from "../components/Navbar/Navbar";
+import { NavbarLinks } from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const Footer = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("token"));
-
-  useEffect(() => {
-    const token = Cookies.get("token");
-    setIsLoggedIn(!!token);
-
-    const handleCookieChange = () => {
-      setIsLoggedIn(!!Cookies.get("token"));
-    };
-
-    // Tambahkan event listener jika cookies diubah
-    const interval = setInterval(handleCookieChange, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  const isLoggedIn = !!localStorage.getItem("token");
 
   const footerLinks = isLoggedIn
     ? [...NavbarLinks, { name: "Pick & Pack", link: "/CategoryPage" }]
@@ -41,15 +24,13 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          {!isLoggedIn && (
-            <Link
-              to="RegisterPage"
-              className="bg-white inline-flex items-center text-primary py-2 px-4 rounded-md font-bold shadow hover:bg-gray-200 transition duration-300 space-x-2"
-            >
-              <span>Daftar Sekarang</span>
-              <MdArrowOutward size={18} />
-            </Link>
-          )}
+          <Link
+            to="RegisterPage"
+            className="bg-white inline-flex items-center text-primary py-2 px-4 rounded-md font-bold shadow hover:bg-gray-200 transition duration-300 space-x-2"
+          >
+            <span>Daftar Sekarang</span>
+            <MdArrowOutward size={18} />
+          </Link>
         </div>
       </div>
       <div className="container mx-auto mt-3">
@@ -63,16 +44,18 @@ const Footer = () => {
           </div>
 
           <ul className="flex space-x-6 md:space-x-10 text-sm md:text-base font-semibold">
-            {footerLinks.map((navItem) => (
-              <li key={navItem.name}>
-                <a
-                  href={navItem.link}
-                  className="inline-block py-1 px-3 font-semibold"
-                >
-                  {navItem.name}
-                </a>
-              </li>
-            ))}
+            {footerLinks.map((navItem) => {
+              return (
+                <li key={navItem.name}>
+                  <a
+                    href={navItem.link}
+                    className="inline-block py-1 px-3 font-semibold"
+                  >
+                    {navItem.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="flex space-x-4 mt-6 md:mt-0">

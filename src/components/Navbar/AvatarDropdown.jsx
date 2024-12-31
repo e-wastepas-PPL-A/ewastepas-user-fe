@@ -1,18 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import Cookies from "js-cookie";
-import { Logout } from "../utils/Api";
-import axios from "axios"; // Untuk melakukan fetch ke API
 
 function AvatarDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [profilePhoto, setProfilePhoto] = useState("/images/profile.png");
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  // Check if the user is logged in by looking for the 'token' in cookies
-  const isLoggedIn = !!Cookies.get("token");
+  const isLoggedIn = !!localStorage.getItem("token");
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   const closeDropdown = () => setIsOpen(false);
@@ -30,47 +25,9 @@ function AvatarDropdown() {
     };
   }, []);
 
-  // Fetch profile data from API
-  useEffect(() => {
-    const fetchProfileData = async () => {
-      const token = Cookies.get("token");
-      if (!token) {
-        return;
-      }
-
-      try {
-        const response = await axios.get("http://localhost:3000/auth/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        const profileData = response.data.user?.[0];
-        if (profileData?.photo) {
-          setProfilePhoto(
-            `http://localhost:3000/${profileData.photo.replace(/\\/g, "/")}`
-          );
-        }
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-      }
-    };
-
-    fetchProfileData();
-  }, []); // Runs only once when the component mounts
-
-  const handleLogout = async () => {
-    try {
-      await Logout(); // Call the logout API
-
-      // Remove the token and profile data from cookies
-      Cookies.remove("token");
-      Cookies.remove("profile");
-
-      navigate("/LoginPage");
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/LoginPage");
   };
 
   if (!isLoggedIn) {
@@ -88,7 +45,7 @@ function AvatarDropdown() {
       >
         <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-primary rounded-full">
           <img
-            src={profilePhoto} // Use the dynamic profile photo
+            src="/images/hikel.jpg"
             alt="User Avatar"
             className="object-cover w-full h-full rounded-full"
           />
