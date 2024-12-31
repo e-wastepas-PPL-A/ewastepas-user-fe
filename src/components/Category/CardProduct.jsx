@@ -27,7 +27,7 @@ const Card = ({ title, points, image, bgImage, onAddToCart }) => {
       <div className="bg-white shadow-lg rounded-xl overflow-hidden w-80 sm:w-64 flex flex-col items-center">
         {/* Background */}
         <div
-          className="relative w-full h-52 flex justify-center items-center"
+          className="relative w-full h-52"
           style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: "cover",
@@ -38,19 +38,23 @@ const Card = ({ title, points, image, bgImage, onAddToCart }) => {
           <img
             src={image}
             alt={title}
-            className="w-44 h-44 object-contain z-0"
+            className="absolute top-5 left-1/2 transform -translate-x-1/2 w-44 h-44 object-contain z-10"
           />
         </div>
 
         {/* Title dan poin */}
-        <div className="text-center mt-6 px-6">
-          <h3 className="text-xl font-bold text-gray-800">{title}</h3>
-          <p className="text-primary text-lg font-medium">{points} Points</p>
+        <div className="text-center mt-4 md:mt-6 px-4 sm:px-6">
+          <h3 className="text-base sm:text-xl font-bold text-gray-800">
+            {title}
+          </h3>
+          <p className="text-primary text-sm sm:text-lg font-medium">
+            {points} Points
+          </p>
         </div>
         {/* Button Add to Cart */}
         <button
           onClick={onAddToCart}
-          className="flex items-center justify-center bg-primary font-semibold text-white rounded-full mt-2 mb-4 w-56 py-2 shadow-md transform transition-transform duration-200 hover:scale-105"
+          className="flex items-center justify-center bg-primary text-sm sm:text-base font-semibold text-white rounded-full mt-2 mb-4 w-52 sm:w-56 py-2 shadow-md transform transition-transform duration-200 hover:scale-105"
         >
           Masukkan ke keranjang
         </button>
@@ -70,7 +74,7 @@ const CardProduct = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-8">
+    <div className="flex items-center justify-center p-8 relative">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {productsData.map((card, index) => (
           <Card
@@ -86,7 +90,7 @@ const CardProduct = () => {
 
       {/* Alert */}
       {showAlert && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center">
             {/* Icon */}
             <svg

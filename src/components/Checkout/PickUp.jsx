@@ -2,7 +2,7 @@ import React from "react";
 
 const PickUp = () => {
   return (
-    <div className="w-full  mx-auto">
+    <div className="w-full mx-auto">
       {/* Header */}
       <div className="flex items-center mb-4">
         <h2 className="text-base sm:text-lg font-bold">Penjemputan E-Waste</h2>

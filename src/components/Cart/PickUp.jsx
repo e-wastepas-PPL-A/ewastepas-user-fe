@@ -8,7 +8,14 @@ const PickUp = () => {
   const [fadeAlert, setFadeAlert] = useState(false);
 
   const increment = () => setCount(count + 1);
-  const decrement = () => setCount(count > 0 ? count - 1 : 0);
+
+  const decrement = () => {
+    if (count === 1) {
+      setShowConfirm(true);
+    } else {
+      setCount(count > 0 ? count - 1 : 0);
+    }
+  };
 
   const handleDelete = () => {
     setShowConfirm(true);
@@ -23,6 +30,8 @@ const PickUp = () => {
       setFadeAlert(false);
       setTimeout(() => setShowAlert(false), 500);
     }, 550);
+
+    setCount(0);
   };
 
   const cancelDelete = () => {
@@ -117,7 +126,6 @@ const PickUp = () => {
         </div>
       )}
 
-      {/* Alert Berhasil dihapus */}
       {showAlert && (
         <div
           className={`fixed bottom-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg transition-all duration-500 ease-out z-50 ${

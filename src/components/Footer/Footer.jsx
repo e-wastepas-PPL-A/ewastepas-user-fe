@@ -1,7 +1,5 @@
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
-import { FaInstagram, FaXTwitter, FaFacebook } from "react-icons/fa6";
-import { NavbarLinks } from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -20,49 +18,11 @@ const Footer = () => {
         <div>
           <Link
             to="RegisterPage"
-            className="bg-white inline-flex items-center text-primary py-2 px-4 rounded-md font-bold shadow hover:bg-gray-200 transition duration-300 space-x-2"
+            className="bg-white inline-flex items-center text-sm sm:text-xl text-primary sm:py-2 sm:px-4 px-3 py-2 rounded-md font-bold shadow hover:bg-gray-200 transition duration-300 space-x-2"
           >
             <span>Daftar Sekarang</span>
-            <MdArrowOutward size={18} />
+            <MdArrowOutward size={25} />
           </Link>
-        </div>
-      </div>
-      <div className="container mx-auto mt-3">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <img
-              src="/images/logoBulat.png"
-              alt="Logo Ewhale"
-              className="h-14 mx-auto md:mx-0"
-            />
-          </div>
-
-          <ul className="flex space-x-6 md:space-x-10 text-sm md:text-base font-semibold">
-            {NavbarLinks.map((navItem) => {
-              return (
-                <li key={navItem.name}>
-                  <a
-                    href={navItem.link}
-                    className="inline-block py-1 px-3 font-semibold"
-                  >
-                    {navItem.name}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-
-          <div className="flex space-x-4 mt-6 md:mt-0">
-            <a href="https://instagram.com" className="hover:text-gray-300">
-              <FaInstagram size={28} />
-            </a>
-            <a href="https://twitter.com" className="hover:text-gray-300">
-              <FaXTwitter size={28} />
-            </a>
-            <a href="https://facebook.com" className="hover:text-gray-300">
-              <FaFacebook size={28} />
-            </a>
-          </div>
         </div>
       </div>
       <div className="container mx-auto text-center mt-4 border-t border-gray-300 pt-4">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Summary = () => {
   return (
-    <div className="w-full max-w-md mx-auto lg:max-w-sm bg-white p-4 sm:p-6 rounded-lg shadow-md">
+    <div className="flex-1 bg-white p-4 sm:p-6 rounded-xl shadow-lg">
       <h3 className="text-lg font-bold mb-4 text-center lg:text-left">
         Ringkasan E-Waste
       </h3>

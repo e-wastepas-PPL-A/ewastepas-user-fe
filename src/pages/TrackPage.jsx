@@ -34,7 +34,7 @@ const TrackPage = () => {
           <div className="order-1 lg:order-2">
             <ListOrder className="order-2 lg:order-1" />
           </div>
-          <div className="order-3 sm:-mt-[380px] lg:order-3">
+          <div className="order-3 sm:-mt-[380px]">
             <Address />
           </div>
         </div>

@@ -19,7 +19,7 @@ const CartPage = () => {
           </div>
 
           {/* Summary Section */}
-          <div className="w-full lg:w-1/3">
+          <div className="w-full lg:w-1/3 md:w-full">
             <Summary />
           </div>
         </div>
