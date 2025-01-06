@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Footer = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("token"));
+
+  useEffect(() => {
+    const handleCookieChange = () => {
+      setIsLoggedIn(!!Cookies.get("token"));
+    };
+
+    // Set interval untuk memonitor perubahan pada cookie
+    const interval = setInterval(handleCookieChange, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <footer className="bg-sky-950 text-white py-10">
       <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
@@ -15,14 +31,24 @@ const Footer = () => {
             ulang sampah elektronik Anda bersama kami!
           </p>
         </div>
-        <div className="w-full lg:w-auto flex justify-center lg:justify-end lg:pr-20">
-          <Link
-            to="RegisterPage"
-            className="bg-white inline-flex items-center text-primary text-sm lg:text-base lg:py-2 lg:px-4 py-3 px-3 rounded-md font-bold shadow hover:bg-gray-200 transition duration-300 space-x-2"
-          >
-            <span>Daftar Sekarang</span>
-            <MdArrowOutward size={18} />
-          </Link>
+        <div className="w-full lg:w-auto flex justify-center lg:justify-end lg:pr-20 mb-5">
+          {!isLoggedIn ? (
+            <Link
+              to="RegisterPage"
+              className="bg-white inline-flex items-center text-primary py-2 px-4 rounded-md font-bold shadow hover:bg-gray-200 transition duration-300 space-x-2"
+            >
+              <span>Daftar Sekarang</span>
+              <MdArrowOutward size={18} />
+            </Link>
+          ) : (
+            <Link
+              to="CategoryPage"
+              className="bg-white inline-flex items-center text-primary py-2 px-4 rounded-md font-bold shadow hover:bg-gray-200 transition duration-300 space-x-2"
+            >
+              <span>Jemput Sekarang</span>
+              <MdArrowOutward size={18} />
+            </Link>
+          )}
         </div>
       </div>
       <div className="container mx-auto text-center mt-4 border-t border-gray-300 pt-4">

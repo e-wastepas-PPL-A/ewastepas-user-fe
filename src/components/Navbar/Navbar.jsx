@@ -4,10 +4,10 @@ import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { NavLink, useNavigate } from "react-router-dom";
 import AvatarDropdown from "./AvatarDropdown";
+import Cookies from "js-cookie"; // Import js-cookie
 
 export const NavbarLinks = [
   { name: "Beranda", link: "/" },
-  { name: "Pick & Pack", link: "/CategoryPage" },
   { name: "Tentang Kami", link: "/AboutPage" },
   { name: "Kontak", link: "/#Contact" }, // Link for scroll to Contact section
 ];
@@ -15,6 +15,14 @@ export const NavbarLinks = [
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  const isLoggedIn = !!Cookies.get("token");
+  const navLinks = isLoggedIn
+    ? [
+        ...NavbarLinks.slice(0, 1),
+        { name: "Pick & Pack", link: "/CategoryPage" },
+        ...NavbarLinks.slice(1),
+      ]
+    : NavbarLinks;
 
   // Function to handle scroll to Contact section
   const handleScrollToContact = (e) => {
@@ -53,7 +61,7 @@ const Navbar = () => {
           {/* Menu Section */}
           <div className="hidden md:block">
             <ul className="flex items-center gap-5">
-              {NavbarLinks.map((navItem) => (
+              {navLinks.map((navItem) => (
                 <li key={navItem.name}>
                   {navItem.name === "Kontak" ? (
                     <button
@@ -98,17 +106,20 @@ const Navbar = () => {
                 <PiShoppingCartLight />
               </button>
             </NavLink>
-            <NavLink to="RegisterPage">
-              <button
-                type="button"
-                className="text-white bg-primary focus:outline-none font-semibold rounded-full text-sm px-5 py-2 text-center md:block"
-              >
-                Registrasi
-              </button>
-            </NavLink>
-            <div className="flex justify-end p-4">
-              <AvatarDropdown />
-            </div>
+            {isLoggedIn ? (
+              <div className="flex justify-end p-4">
+                <AvatarDropdown />
+              </div>
+            ) : (
+              <NavLink to="RegisterPage">
+                <button
+                  type="button"
+                  className="text-white bg-primary focus:outline-none font-semibold rounded-full text-sm px-5 py-2 text-center md:block"
+                >
+                  Registrasi
+                </button>
+              </NavLink>
+            )}
           </div>
 
           {/* Mobile hamburger menu Section */}

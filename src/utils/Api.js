@@ -34,6 +34,20 @@ export async function verifyOtp(email, otp_code) {
   }
 }
 
+export async function resendOtp(email) {
+  try {
+    console.log("Resending OTP for:", email);
+    const response = await axios.post(`${API_BASE_URL}/resend-otp`, {
+      email,
+    });
+    console.log("Resend OTP response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error resending OTP:", error);
+    throw error;
+  }
+}
+
 export async function Login(email, password, rememberMe) {
   try {
     const response = await axios.post(`${API_BASE_URL}/login`, {
@@ -41,8 +55,6 @@ export async function Login(email, password, rememberMe) {
       password,
       rememberMe,
     });
-
-    console.log("Login response:", response);
 
     if (response.data && response.data.token) {
       const expires = rememberMe ? 7 : 1;
@@ -61,11 +73,21 @@ export async function Login(email, password, rememberMe) {
     }
   } catch (error) {
     console.error("Error saat login:", error);
-    throw new Error(
-      error?.response?.data?.message || "Login gagal. Silakan coba lagi."
-    );
+
+    // Tangani error secara spesifik
+    if (error.response && error.response.data) {
+      // Lempar respons API untuk ditangani di `handleSubmit`
+      throw error.response;
+    }
+
+    // Tangani kesalahan lain seperti jaringan, timeout, dll.
+    throw {
+      data: { message: "Tidak dapat terhubung ke server. Silakan coba lagi." },
+    };
   }
 }
+
+
 
 export async function forgotPassword(email) {
   try {
@@ -74,23 +96,32 @@ export async function forgotPassword(email) {
     });
     return response.data;
   } catch (error) {
-    console.error("Error during forgot password request:", error);
-    throw error;
+    console.error(
+      "Error during forgot password request:",
+      error.response?.data || error.message
+    );
+    throw error; // You may want to pass the error message to the frontend for a better UX
   }
 }
 
-export async function resetPassword(email, newPassword) {
+export async function resetPassword(token, newPassword) {
   try {
+    if (!token) {
+      throw new Error("Token is missing");
+    }
+
     const response = await axios.post(
-      `${API_BASE_URL}/reset-password/${email}`,
-      {
-        newPassword,
-      }
+      `${API_BASE_URL}/reset-password/${token}`,
+      { newPassword }
     );
-    return response.data;
+
+    return response.data; 
   } catch (error) {
     console.error("Error during password reset:", error);
-    throw error;
+    throw new Error(
+      error.response?.data?.error ||
+        "An error occurred while resetting the password. Please try again."
+    );
   }
 }
 
@@ -179,3 +210,21 @@ export async function updateProfile(profileData) {
     throw error;
   }
 }
+
+export const contact = async (formData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/contact`, formData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error during contact submission:",
+      error.response?.data || error.message
+    );
+    throw new Error(error.response?.data?.error || "An unknown error occurred");
+  }
+};

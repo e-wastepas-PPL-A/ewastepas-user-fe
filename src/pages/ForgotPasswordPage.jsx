@@ -7,19 +7,20 @@ import { forgotPassword } from "../utils/Api";
 function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // New state for success message
-  const [loading, setLoading] = useState(false); // New state for loading status
-
+  const [successMessage, setSuccessMessage] = useState(""); 
+  const [loading, setLoading] = useState(false); 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
-    setSuccessMessage(""); // Reset success message on form submission
-    setLoading(true); // Set loading to true when starting the request
+    setSuccessMessage(""); 
+    setLoading(true); 
 
     try {
       await forgotPassword(email);
-      // Set success message if email is sent successfully
       setSuccessMessage("Tautan reset kata sandi telah dikirim ke email Anda.");
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         setErrorMessage("Email tidak ditemukan.");
@@ -27,39 +28,40 @@ function ForgotPasswordPage() {
         alert("Terjadi kesalahan pada server.");
       }
     } finally {
-      setLoading(false); // Set loading to false after request is completed
+      setLoading(false); 
     }
   };
 
   return (
-    <div className="container px-1 mt-28 md:mt-14 lg:mt-14 xl:mt-14 flex justify-center md:items-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-8 lg:gap-7 md:gap-6 xl:mx-8 lg:mx-6">
-        <div className="hidden xl:block lg:block md:block md:my-8 md:mx-4 md:w-90 xl:w-100 xl:my-5 lg:w-95 lg:my-5">
-          <img src="/images/forgot.png" alt="Lupa Kata Sandi" />
+    <div className="container px-1 flex justify-center items-center mt-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-7 lg:mx-6 items-center w-full max-w-6xl">
+        <div className="hidden lg:block xl:w-100 xl:my-5 lg:w-95 lg:my-5">
+          <img
+            src="/images/forgot.png"
+            alt="Forgot Password"
+            className="w-full h-auto"
+          />
         </div>
-        <div className="p-6 w-full max-w-md">
-          <div className="flex justify-center mb-10 -mt-10">
+        <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-full mx-auto p-6">
+          <div className="flex justify-center mb-5 lg:mb-2 lg:-mt-56">
             <img
               src="/images/logo1.png"
               alt="Logo"
-              className="w-52 md:w-56 xl:w-64"
+              className="w-64 md:w-72 lg:w-80"
             />
           </div>
-          <h1 className="text-3xl xl:text-4xl font-bold mb-2 -mt-5 text-gray-800">
+          <h1 className="text-3xl xl:text-4xl font-bold mb-2 text-gray-800">
             Lupa Kata Sandi
           </h1>
-          <h5 className="text-sm xl:text-base mb-2 text-black opacity-50 font-semibold">
-            Masukkan email Anda untuk atur ulang kata sandi
+          <h5 className="text-sm xl:text-base mb-6 text-black opacity-50 font-semibold">
+            Masukkan email Anda untuk atur ulang kata sandi{" "}
           </h5>
 
-          {/* Conditional rendering of success message */}
           {successMessage && (
-            <div className="text-green-500 text-sm mb-3">{successMessage}</div>
+            <div className="text-green-600 text-md">{successMessage}</div>
           )}
-
-          {/* Conditional rendering of the error message */}
           {errorMessage && (
-            <div className="text-red-500 text-sm mb-3">{errorMessage}</div>
+            <div className="text-red-600 text-md">{errorMessage}</div>
           )}
 
           <form onSubmit={handleSubmit}>
@@ -73,11 +75,11 @@ function ForgotPasswordPage() {
 
             <button
               type="submit"
-              className="w-full bg-primary hover:bg-primary-dark font-semibold text-white py-2 px-4 rounded cursor-pointer"
-              disabled={loading} // Disable button when loading
+              className="w-full bg-primary hover:bg-primary-dark font-semibold text-white py-2 px-4 rounded cursor-pointer mt-2"
+              disabled={loading} 
             >
               {loading ? "Memproses..." : "Kirim"}{" "}
-              {/* Display processing or submit text */}
+  
             </button>
           </form>
           <div className="text-sm xl:text-base my-3 flex items-center justify-center">

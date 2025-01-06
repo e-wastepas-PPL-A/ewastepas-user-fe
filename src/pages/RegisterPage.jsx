@@ -17,7 +17,7 @@ function RegisterPage() {
   const [showAlert, setShowAlert] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [serverError, setServerError] = useState("");
-  const [isPasswordValid, setIsPasswordValid] = useState(true); 
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ function RegisterPage() {
       confirmPassword: "",
       agreeToTerms: "",
     });
-    setServerError(""); 
+    setServerError("");
 
     let hasError = false;
 
@@ -148,7 +148,6 @@ function RegisterPage() {
     }
   }, [isFocused]);
 
- 
   const validationMessage = (
     <div className="flex flex-col items-start text-sm mt-2">
       <p className="text-gray-700">
@@ -174,17 +173,21 @@ function RegisterPage() {
     !isPasswordValid || Object.values(errors).some((error) => error);
 
   return (
-    <div className="container px-1 mt-8 xl:mt-14 flex justify-center md:items-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-8 lg:gap-7 md:gap-6 xl:mx-8 lg:mx-6 items-center">
-        <div className="hidden xl:block lg:block md:block md:my-24 md:mx-4 md:w-90 xl:w-100 xl:my-5 lg:w-95 lg:my-5">
-          <img src="/images/register.png" alt="Registrasi" />
+    <div className="container px-1 mt-8 xl:mt-14 flex justify-center items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-7 lg:mx-6 items-center w-full max-w-6xl">
+        <div className="hidden lg:block xl:w-100 xl:my-5 lg:w-95 lg:my-5">
+          <img
+            src="/images/register.png"
+            alt="Registrasi"
+            className="w-full h-auto"
+          />
         </div>
-        <div className="p-6 w-full max-w-md">
+        <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-full mx-auto p-6">
           <div className="flex justify-center mb-8 -mt-10">
             <img
               src="/images/logo1.png"
               alt="Logo"
-              className="w-52 md:w-56 xl:w-64"
+              className="w-64 md:w-72 lg:w-80"
             />
           </div>
           <h1 className="text-3xl xl:text-4xl font-bold mb-2 -mt-5 text-gray-800">
@@ -194,7 +197,7 @@ function RegisterPage() {
             Mari siapkan semuanya agar Anda dapat mengakses akun Anda
           </h5>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="space-y-1">
             {serverError && (
               <div className="text-red-500 text-sm mt-4">{serverError}</div>
             )}
@@ -210,7 +213,7 @@ function RegisterPage() {
               placeholder={"Nama Pengguna"}
             />
             {errors.name && (
-              <div className="text-red-500 text-sm mt-1">{errors.name}</div>
+              <div className="text-red-500 text-sm">{errors.name}</div>
             )}
 
             <InputEmail
@@ -231,7 +234,7 @@ function RegisterPage() {
               placeholder="Email"
             />
             {errors.email && (
-              <div className="text-red-500 text-sm mt-1">{errors.email}</div>
+              <div className="text-red-500 text-sm ">{errors.email}</div>
             )}
 
             <InputPassword
@@ -247,7 +250,7 @@ function RegisterPage() {
               onBlur={() => setIsFocused(false)}
             />
             {errors.password && (
-              <div className="text-red-500 text-sm mt-1">{errors.password}</div>
+              <div className="text-red-500 text-sm ">{errors.password}</div>
             )}
             {isFocused && validationMessage}
 
@@ -273,7 +276,7 @@ function RegisterPage() {
               placeholder={"Konfirmasi Kata Sandi"}
             />
             {errors.confirmPassword && (
-              <div className="text-red-500 text-sm mt-1">
+              <div className="text-red-500 text-sm ">
                 {errors.confirmPassword}
               </div>
             )}
@@ -296,9 +299,7 @@ function RegisterPage() {
               </label>
             </div>
             {errors.agreeToTerms && (
-              <div className="text-red-500 text-sm mt-1">
-                {errors.agreeToTerms}
-              </div>
+              <div className="text-red-500 text-sm ">{errors.agreeToTerms}</div>
             )}
 
             <button
@@ -316,14 +317,14 @@ function RegisterPage() {
                 Masuk
               </a>
             </p>
-            <div className="flex items-center justify-center mt-1">
+            <div className="flex items-center justify-center mt-2">
               <hr className="w-24 border-gray-300" />
               <p className="text-sm xl:text-base text-gray-500 mx-3">
                 Atau daftar dengan
               </p>
               <hr className="w-24 border-gray-300" />
             </div>
-            <div className="flex justify-center mt-1">
+            <div className="flex justify-center mt-4">
               <button className="relative flex justify-center items-center w-10 h-10 bg-white border border-gray-300 rounded-full shadow-md hover:shadow-lg transition duration-300">
                 <FcGoogle size={24} />
               </button>
@@ -334,13 +335,20 @@ function RegisterPage() {
 
       {showAlert && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-sm">
-            <div className="mb-4">
-              <img
-                src="/images/berhasil.png"
-                alt="Alert Image"
-                className="w-20 h-20 mx-auto"
-              />
+          <div className="bg-white rounded-lg shadow-lg p-4 w-[90%] max-w-sm">
+            <div className="mb-4 flex justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-20 w-20 text-green-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </div>
             <h2 className="text-xl font-bold mb-2 text-gray-800 text-center">
               Registrasi Berhasil
@@ -352,7 +360,7 @@ function RegisterPage() {
             <div className="text-center">
               <button
                 onClick={closeAlert}
-                className="bg-primary text-white py-2 px-4 hover:bg-primary-dark"
+                className="bg-primary text-white py-2 px-4  hover:bg-primary-dark"
               >
                 Lanjutkan
               </button>

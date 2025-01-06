@@ -8,7 +8,7 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div className="flex p-10 min-h-screen pt-36">
+      <div className="flex flex-col lg:flex-row p-10 min-h-screen pt-36 lg:items-start lg:justify-start items-center justify-center">
         <SideBar />
         <div className="w-full bg-white p-6 rounded-xl shadow-xl ml-8">
           <div className="flex mb-4 border-b border-gray-200">
