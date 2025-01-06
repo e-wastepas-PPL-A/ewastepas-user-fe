@@ -1,23 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaUser, FaFileAlt, FaBars } from "react-icons/fa";
+import { fetchProfileData } from "../../utils/Api";
 
 const SideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [userName, setUserName] = useState("Lorem Ipsum");
+  const [userPhoto, setUserPhoto] = useState("/images/profile.png");
   const location = useLocation();
 
-  // Debugging: Log lokasi URL saat ini
-  console.log("Current Location:", location.pathname);
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const profileData = await fetchProfileData();
+        if (profileData) {
+          setUserName(profileData.name || "Lorem Ipsum");
+          if (profileData.photo) {
+            setUserPhoto(
+              `http://localhost:3000/${profileData.photo.replace(/\\/g, "/")}`
+            );
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    getUserData();
+  }, []);
 
   return (
     <div>
       {/* Sidebar for large screens */}
       <div className="bg-white hidden lg:block w-64 ml-10 h-auto p-4 rounded-lg border shadow">
         <div className="flex items-center mb-8">
-          <div className="bg-gray-300 w-10 h-10 rounded-full flex items-center justify-center">
-            <FaUser className="text-xl" />
+          <div className="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src={userPhoto}
+              alt={userName}
+              className="w-full h-full object-cover"
+            />
           </div>
-          <span className="ml-4 font-bold">Lorem Ipsum</span>
+          <span className="ml-4 font-bold">{userName}</span>
         </div>
         <ul>
           <li className="mb-4">
@@ -60,12 +84,19 @@ const SideBar = () => {
       >
         <div className="flex justify-between items-center p-4">
           <div className="flex items-center">
-            <div className="bg-gray-300 w-10 h-10 rounded-full flex items-center justify-center">
-              <FaUser className="text-xl" />
+            <div className="w-10 h-10 rounded-full overflow-hidden">
+              <img
+                src={userPhoto}
+                alt={userName}
+                className="w-full h-full object-cover"
+              />
             </div>
-            <span className="ml-4 font-bold">Lorem Ipsum</span>
+            <span className="ml-4 font-bold">{userName}</span>
           </div>
-          <button onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
+          >
             <FaBars className="text-2xl" />
           </button>
         </div>

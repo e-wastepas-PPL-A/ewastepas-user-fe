@@ -41,7 +41,7 @@ function App() {
           <Route path="OtpPage" element={<OtpPage />} />
           <Route path="LoginPage" element={<LoginPage />} />
           <Route path="ForgotPasswordPage" element={<ForgotPasswordPage />} />
-          <Route path="NewPasswordPage/:email" element={<NewPasswordPage />} />
+          <Route path="NewPasswordPage/:token" element={<NewPasswordPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

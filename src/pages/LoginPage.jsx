@@ -16,98 +16,94 @@ function LoginPage() {
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-   // Clear previous error messages
-   setEmailError("");
-   setPasswordError("");
+    setEmailError("");
+    setPasswordError("");
 
-   let valid = true;
+    let valid = true;
 
-   // Check if email is empty
-   if (email.trim() === "") {
-     setEmailError("Email wajib diisi.");
-     valid = false;
-   }
+    
+    if (email.trim() === "") {
+      setEmailError("Email wajib diisi.");
+      valid = false;
+    }
 
-   // Check if password is empty
-   if (password.trim() === "") {
-     setPasswordError("Kata sandi wajib diisi.");
-     valid = false;
-   }
+    if (password.trim() === "") {
+      setPasswordError("Kata sandi wajib diisi.");
+      valid = false;
+    }
 
-   if (!valid) {
-     return; // Prevent form submission if there are validation errors
-   }
+    if (!valid) {
+      return; 
+    }
 
-   try {
-     const result = await Login(email, password);
+try {
+  const result = await Login(email, password, rememberMe);
 
-     // If login is successful, store the JWT token and user info in cookies
-     localStorage.setItem("token", result.token);
-     Cookies.set(
-       "profile",
-       JSON.stringify({
-         name: result.name, // Assuming the API returns user's name
-         email: email, // You already have the email
-       })
-     );
+  localStorage.setItem("token", result.token);
+  Cookies.set(
+    "profile",
+    JSON.stringify({
+      name: result.name,
+      email: email,
+    })
+  );
 
-     console.log("Login successful", result.message);
+  console.log("Login successful", result.message);
 
-     // Redirect to the home page immediately after a successful login
-     navigate("/");
-   } catch (error) {
-     console.error(error);
+  navigate("/");
+} catch (error) {
+  console.error(error);
 
-     if (error.response && error.response.data) {
-       const { message } = error.response.data;
-       if (message === "Pengguna tidak ditemukan") {
-         setAlertMessage("Pengguna tidak ditemukan. Silakan cek email Anda.");
-       } else if (
-         message ===
-         "Akun belum diverifikasi. Silakan periksa email Anda untuk OTP."
-       ) {
-         setAlertMessage(
-           "Akun Anda belum diverifikasi. Silakan periksa email Anda untuk OTP."
-         );
-       } else if (message === "Password tidak valid") {
-         setAlertMessage("Kata sandi tidak valid. Silakan coba lagi.");
-       } else {
-         setAlertMessage("Terjadi kesalahan. Silakan coba lagi.");
-       }
-     } else {
-       setAlertMessage("Terjadi kesalahan. Silakan coba lagi.");
-     }
+  const message = error?.data?.message;
 
-     setShowAlert(true);
-   }
- };
+  if (message === "Pengguna tidak ditemukan") {
+    setAlertMessage("Pengguna tidak ditemukan. Silakan cek email Anda.");
+  } else if (
+    message === "Akun belum diverifikasi. Silakan periksa email Anda untuk OTP."
+  ) {
+    setAlertMessage(
+      "Akun Anda belum diverifikasi. Silakan periksa email Anda untuk OTP."
+    );
+  } else if (message === "Password tidak valid") {
+    setAlertMessage("Kata sandi tidak valid. Silakan coba lagi.");
+  } else {
+    setAlertMessage(message || "Terjadi kesalahan. Silakan coba lagi.");
+  }
 
+  setShowAlert(true);
+}
+
+  };
 
   return (
-    <div className="container px-1 mt-28 md:mt-14 lg:mt-14 xl:mt-14 flex justify-center md:items-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-8 lg:gap-7 md:gap-6 xl:mx-8 lg:mx-6">
-        <div className="hidden xl:block lg:block md:block md:my-8 md:mx-4 md:w-90 xl:w-100 xl:my-5 lg:w-95 lg:my-5">
-          <img src="/images/register.png" alt="Registrasi" />
+    <div className="container px-1 flex justify-center items-center mt-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-7 lg:mx-6 items-center w-full max-w-6xl">
+        <div className="hidden lg:block xl:w-100 xl:my-5 lg:w-95 lg:my-5">
+          <img
+            src="/images/register.png"
+            alt="Login"
+            className="w-full h-auto"
+          />
         </div>
-        <div className="p-6 w-full max-w-md">
-          <div className="flex justify-center mb-8 -mt-10">
+        <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-full mx-auto p-6">
+          <div className="flex justify-center mb-5 lg:mb-2 lg:-mt-44">
             <img
               src="/images/logo1.png"
               alt="Logo"
-              className="w-52 md:w-56 xl:w-64"
+              className="w-64 md:w-72 lg:w-80"
             />
           </div>
-          <h1 className="text-3xl xl:text-4xl font-bold mb-2 -mt-5 text-gray-800">
+          <h1 className="text-3xl xl:text-4xl font-bold mb-2 text-gray-800">
             Masuk
           </h1>
           <h5 className="text-sm xl:text-base mb-2 text-black opacity-50 font-semibold">
             Masuk untuk mengakses akun Anda
           </h5>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="space-y-3 w-full">
             <div>
               <InputEmail
                 id="email"
@@ -175,16 +171,20 @@ function LoginPage() {
         </div>
       </div>
 
-      {/* Alert Box for error messages */}
       {showAlert && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-sm">
-            <div className="mb-4">
-              <img
-                src="/images/gagal.png"
-                alt="Alert Icon"
-                className="w-20 h-20 mx-auto"
-              />
+          <div className="bg-white rounded-lg shadow-lg p-4 w-[90%] max-w-sm">
+             <div className="mb-4 flex justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-20 w-20 text-red-500"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="m8.4 17l3.6-3.6l3.6 3.6l1.4-1.4l-3.6-3.6L17 8.4L15.6 7L12 10.6L8.4 7L7 8.4l3.6 3.6L7 15.6zm3.6 5q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+                />
+              </svg>
             </div>
             <h2 className="text-xl font-bold mb-2 text-gray-800 text-center">
               Login Gagal!
