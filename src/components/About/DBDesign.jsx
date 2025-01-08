@@ -15,11 +15,13 @@ const DBDesign = () => {
   ];
 
   return (
-    <Card
-      title="Database Designer Team"
-      description="Meet our skilled developers who build amazing applications."
-      teamMembers={teamMembers}
-    />
+    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+      <Card
+        title="Database Designer Team"
+        description="Meet our skilled developers who build amazing applications."
+        teamMembers={teamMembers}
+      />
+    </div>
   );
 };
 

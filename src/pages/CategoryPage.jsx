@@ -6,7 +6,9 @@ export default function CategoryPage() {
   return (
     <>
       <div className="pt-20">
-        <CardSlider />
+        <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+          <CardSlider />
+        </div>
         <div className="flex items-center justify-center pt-10">
           <div className="text-center">
             <h1 className="text-primary font-bold text-4xl sm:text-5xl pb-3">
@@ -16,7 +18,9 @@ export default function CategoryPage() {
           </div>
         </div>
         <SearchBar />
-        <CardProduct />
+        <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+          <CardProduct />
+        </div>
       </div>
     </>
   );

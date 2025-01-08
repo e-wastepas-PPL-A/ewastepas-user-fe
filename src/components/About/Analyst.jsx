@@ -15,11 +15,13 @@ const Analyst = () => {
   ];
 
   return (
-    <Card
-      title="Analyst Team"
-      description="Meet our skilled developers who build amazing applications."
-      teamMembers={teamMembers}
-    />
+    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+      <Card
+        title="Analyst Team"
+        description="Meet our skilled developers who build amazing applications."
+        teamMembers={teamMembers}
+      />
+    </div>
   );
 };
 
