@@ -59,7 +59,7 @@ const Navbar = () => {
           </div>
 
           {/* Menu Section */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <ul className="flex items-center gap-5">
               {navLinks.map((navItem) => (
                 <li key={navItem.name}>
@@ -100,31 +100,34 @@ const Navbar = () => {
           </div>
 
           {/* Icons Section */}
-          <div className="flex items-center gap-9">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <NavLink to="CartPage">
               <button className="text-3xl hover:text-primary">
                 <PiShoppingCartLight />
               </button>
             </NavLink>
-            {isLoggedIn ? (
-              <div className="flex justify-end p-4">
+
+            {!open && isLoggedIn && (
+              <div className="hidden md:block">
                 <AvatarDropdown />
               </div>
-            ) : (
+            )}
+
+            {isLoggedIn ? null : (
               <NavLink to="RegisterPage">
                 <button
                   type="button"
-                  className="text-white bg-primary focus:outline-none font-semibold rounded-full text-sm px-5 py-2 text-center md:block"
+                  className="text-white bg-primary focus:outline-none font-semibold rounded-full text-sm px-4 py-2 text-center"
                 >
                   Registrasi
                 </button>
               </NavLink>
             )}
-          </div>
 
-          {/* Mobile hamburger menu Section */}
-          <div className="md:hidden" onClick={() => setOpen(!open)}>
-            <MdMenu className="text-4xl" />
+            {/* Mobile hamburger menu Section */}
+            <div className="lg:hidden" onClick={() => setOpen(!open)}>
+              <MdMenu className="text-4xl" />
+            </div>
           </div>
         </div>
       </nav>
