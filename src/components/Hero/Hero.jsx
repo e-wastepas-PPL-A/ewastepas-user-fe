@@ -23,7 +23,7 @@ const Hero = () => {
               <span className="whitespace-nowrap">Sampah Elektronikmu</span>
             </h1>
 
-            <div className="flex sm:justify-center">
+            <div className="flex sm:justify-center md:mb-10">
               <button className="bg-primary hover:bg-primary-dark text-white px-4 py-2 text-lg font-semibold rounded-full flex items-center">
                 Daur Ulang Sekarang
                 <IoIosArrowForward className="ml-2 h-6 w-6" />
