@@ -4,24 +4,58 @@ import Card from "./Card";
 const Uiux = () => {
   const teamMembers = [
     {
-      name: "Hikel Bahrul",
-      role: "Front-End Developer",
-      image: "/images/hikel.jpg",
-      social: {
-        github: "https://github.com/hikelbahrul",
-        linkedin: "https://linkedin.com/in/hikelbahrul",
-      },
+      name: "Mohamad Afandi Hidayat",
+      role: "UI/UX Designer",
+      image: "/images/team/MohamadAfandiHidayat.jpg",
     },
+    {
+      name: "Moch Daffa Dhiya Ulhaq",
+      role: "UI/UX Designer",
+      image: "/images/team/MochDaffaDhiyaUlhaq.jpg",
+    },
+    {
+      name: "Yudha Yudhistira Putra Firmansyah",
+      role: "UI/UX Designer",
+      image: "/images/team/YudhaYudhistiraPutraFirmansyah.jpg",
+    },
+    // {
+    //   name: "Risma Rahmana Fitri",
+    //   role: "UI/UX Designer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Mohammad Deandra Adhitya",
+    //   role: "UI/UX Designer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Gloria Rustama Simbolon",
+    //   role: "UI/UX Designer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Diva Nur Haffifah",
+    //   role: "UI/UX Designer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Dzikry Habibie Muchtar",
+    //   role: "UI/UX Designer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Muhammad Dary Febrian",
+    //   role: "UI/UX Designer",
+    //   image: "/images/profile.png",
+    // },
   ];
 
   return (
-    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-      <Card
-        title="UI/UX Team"
-        description="Meet our skilled developers who build amazing applications."
-        teamMembers={teamMembers}
-      />
-    </div>
+    <Card
+      title="UI/UX Team"
+      description="Meet our creative UI/UX designers who deliver intuitive and user-friendly experiences."
+      teamMembers={teamMembers}
+    />
   );
 };
 

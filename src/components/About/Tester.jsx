@@ -4,24 +4,58 @@ import Card from "./Card";
 const Tester = () => {
   const teamMembers = [
     {
-      name: "Hikel Bahrul",
-      role: "Front-End Developer",
-      image: "/images/hikel.jpg",
-      social: {
-        github: "https://github.com/hikelbahrul",
-        linkedin: "https://linkedin.com/in/hikelbahrul",
-      },
+      name: "Adnan Rais Purnomo",
+      role: "Tester",
+      image: "/images/team/AdnanRaisPurnomo.jpg",
     },
+    {
+      name: "Aldi Muhammad Ramdhani",
+      role: "Tester",
+      image: "/images/team/AldiMuhammadRamdhani.jpg",
+    },
+    {
+      name: "Malwi Hidayat Togatorop",
+      role: "Tester",
+      image: "/images/team/MalwiHidayatTogatorop.jpg",
+    },
+    {
+      name: "Muhamad Fauzan Abdul Rochman",
+      role: "Tester",
+      image: "/images/team/MuhamadFauzanAbdulRochman.jpg",
+    },
+    {
+      name: "Naufal Ramdhani",
+      role: "Tester",
+      image: "/images/team/NaufalRamdhani.jpg",
+    },
+    {
+      name: "Saiful Hilal",
+      role: "Tester",
+      image: "/images/team/SaifulHilal.jpg",
+    },
+    {
+      name: "Fajar Agus Hermanto",
+      role: "Tester",
+      image: "/images/team/FajarAgusHermanto.jpg",
+    },
+    // {
+    //   name: "Revina Bella Trisna",
+    //   role: "Tester",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Billy Ramadhan",
+    //   role: "Tester",
+    //   image: "/images/profile.png",
+    // },
   ];
 
   return (
-    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-      <Card
-        title="Tester Team"
-        description="Meet our skilled developers who build amazing applications."
-        teamMembers={teamMembers}
-      />
-    </div>
+    <Card
+      title="Tester Team"
+      description="Meet our dedicated testers who ensure every application meets top-quality standards."
+      teamMembers={teamMembers}
+    />
   );
 };
 

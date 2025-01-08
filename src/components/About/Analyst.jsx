@@ -4,24 +4,53 @@ import Card from "./Card";
 const Analyst = () => {
   const teamMembers = [
     {
-      name: "Hikel Bahrul",
-      role: "Front-End Developer",
-      image: "/images/hikel.jpg",
-      social: {
-        github: "https://github.com/hikelbahrul",
-        linkedin: "https://linkedin.com/in/hikelbahrul",
-      },
+      name: "Wildan Fauzan",
+      role: "Analyst",
+      image: "/images/team/WildanFauzan.jpg",
     },
+    {
+      name: "Fauzi Ilyas Nuryadi",
+      role: "Analyst",
+      image: "/images/team/FauziIlyasNuryadi.jpg",
+    },
+    {
+      name: "Muhammad Jauhari",
+      role: "Analyst",
+      image: "/images/team/MuhammadJauhari.jpg",
+    },
+    {
+      name: "Wina Agustina",
+      role: "Analyst",
+      image: "/images/team/WinaAgustina.jpg",
+    },
+    // {
+    //   name: "Syafira Deby Sanjaya",
+    //   role: "Analyst",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Syahnan Afifah Zahra",
+    //   role: "Analyst",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Muhammad Angga Kusuma",
+    //   role: "Analyst",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Wildan Nasrulloh Reliyanto",
+    //   role: "Analyst",
+    //   image: "/images/profile.png",
+    // },
   ];
 
   return (
-    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-      <Card
-        title="Analyst Team"
-        description="Meet our skilled developers who build amazing applications."
-        teamMembers={teamMembers}
-      />
-    </div>
+    <Card
+      title="Analyst Team"
+      description="Meet our talented analysts who turn ideas into actionable and effective project plans."
+      teamMembers={teamMembers}
+    />
   );
 };
 
