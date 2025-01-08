@@ -54,7 +54,7 @@ const Navbar = () => {
               href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src="/images/logo.png" className="h-8" alt="EwhaleLogo" />
+              <img src="/images/Logo.png" className="h-8" alt="EwhaleLogo" />
             </a>
           </div>
 
