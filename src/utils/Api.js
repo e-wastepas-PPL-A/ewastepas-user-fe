@@ -87,8 +87,6 @@ export async function Login(email, password, rememberMe) {
   }
 }
 
-
-
 export async function forgotPassword(email) {
   try {
     const response = await axios.post(`${API_BASE_URL}/forgot-password`, {
@@ -115,7 +113,7 @@ export async function resetPassword(token, newPassword) {
       { newPassword }
     );
 
-    return response.data; 
+    return response.data;
   } catch (error) {
     console.error("Error during password reset:", error);
     throw new Error(

@@ -15,11 +15,13 @@ const Uiux = () => {
   ];
 
   return (
-    <Card
-      title="UI/UX Team"
-      description="Meet our skilled developers who build amazing applications."
-      teamMembers={teamMembers}
-    />
+    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+      <Card
+        title="UI/UX Team"
+        description="Meet our skilled developers who build amazing applications."
+        teamMembers={teamMembers}
+      />
+    </div>
   );
 };
 

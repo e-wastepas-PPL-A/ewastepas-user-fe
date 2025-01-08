@@ -6,32 +6,32 @@ import "slick-carousel/slick/slick-theme.css";
 const categoryData = [
   {
     image: "/images/kulkas.png",
-    bgImage: "/images/bg.jpg",
+    bgImage: "/images/pattern.jpg",
     title: "Lorem",
   },
   {
     image: "/images/kulkas.png",
-    bgImage: "/images/bg.jpg",
+    bgImage: "/images/pattern.jpg",
     title: "Lorem",
   },
   {
     image: "/images/kulkas.png",
-    bgImage: "/images/bg.jpg",
+    bgImage: "/images/pattern.jpg",
     title: "Lorem",
   },
   {
     image: "/images/kulkas.png",
-    bgImage: "/images/bg.jpg",
+    bgImage: "/images/pattern.jpg",
     title: "Lorem",
   },
   {
     image: "/images/kulkas.png",
-    bgImage: "/images/bg.jpg",
+    bgImage: "/images/pattern.jpg",
     title: "Lorem",
   },
   {
     image: "/images/kulkas.png",
-    bgImage: "/images/bg.jpg",
+    bgImage: "/images/pattern.jpg",
     title: "Lorem",
   },
 ];
