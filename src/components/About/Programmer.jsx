@@ -4,24 +4,83 @@ import Card from "./Card";
 const Programmer = () => {
   const teamMembers = [
     {
-      name: "Hikel Bahrul",
+      name: "Aufaa Husniati",
       role: "Front-End Developer",
-      image: "/images/hikel.jpg",
-      social: {
-        github: "https://github.com/hikelbahrul",
-        linkedin: "https://linkedin.com/in/hikelbahrul",
-      },
+      image: "/images/team/AufaaHusniati.jpg",
     },
+    {
+      name: "Gilman Arief",
+      role: "Front-End Developer",
+      image: "/images/team/GilmanArief.jpg",
+    },
+    {
+      name: "Muhamad Jamaludin",
+      role: "Front-End Developer",
+      image: "/images/team/MuhamadJamaludin.jpg",
+    },
+    {
+      name: "Muhammad Anggi Kusuma",
+      role: "Back-End Developer",
+      image: "/images/team/MuhammadAnggiKusuma.jpg",
+    },
+    {
+      name: "Muhammad Lutfi Amin Ghifarullah",
+      role: "Back-End Developer",
+      image: "/images/team/MuhammadLutfiAminGhifarullah.jpg",
+    },
+    {
+      name: "Dandy Wahyudin",
+      role: "Back-End Developer",
+      image: "/images/team/DandyWahyudin.jpg",
+    },
+    // {
+    //   name: "Putri Legiani Fahreza",
+    //   role: "Back-End Developer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Syifa Rizki Mutia",
+    //   role: "Front-End Developer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Moch Priamitra Nur Alif",
+    //   role: "Back-End Developer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Ainan Bahrul Ihsan",
+    //   role: "Back-End Developer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Muhamad Lanang Abid Kusuma",
+    //   role: "Back-End Developer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Zalfa Mufrih Rifda Dwi Ramadhan",
+    //   role: "Front-End Developer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Muhammad Rizki Haikal",
+    //   role: "Back-End Developer",
+    //   image: "/images/profile.png",
+    // },
+    // {
+    //   name: "Julio Faridh Fherdianscyah",
+    //   role: "Front-End Developer",
+    //   image: "/images/profile.png",
+    // },
   ];
 
   return (
-    <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-      <Card
-        title="Programmer Team"
-        description="Meet our skilled developers who build amazing applications."
-        teamMembers={teamMembers}
-      />
-    </div>
+    <Card
+      title="Programmer Team"
+      description="Meet our skilled developers who build amazing applications."
+      teamMembers={teamMembers}
+    />
   );
 };
 
