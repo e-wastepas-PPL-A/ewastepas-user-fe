@@ -14,7 +14,10 @@ export default function CategoryPage() {
             <h1 className="text-primary font-bold text-4xl sm:text-5xl pb-3">
               Pick & Pack
             </h1>
-            <p className="pb-5">Lorem ipsum dolor sit amet</p>
+            <p className="pb-5 text-gray-600">
+              Pilih jenis sampah elektronik Anda untuk daur ulang yang lebih
+              baik!
+            </p>
           </div>
         </div>
         <SearchBar />

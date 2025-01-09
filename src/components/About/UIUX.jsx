@@ -18,11 +18,11 @@ const Uiux = () => {
       role: "UI/UX Designer",
       image: "/images/team/YudhaYudhistiraPutraFirmansyah.jpg",
     },
-    // {
-    //   name: "Risma Rahmana Fitri",
-    //   role: "UI/UX Designer",
-    //   image: "/images/profile.png",
-    // },
+    {
+      name: "Risma Rahmana Fitri",
+      role: "UI/UX Designer",
+      image: "/images/team/RismaRahmanaFitri.jpg",
+    },
     // {
     //   name: "Mohammad Deandra Adhitya",
     //   role: "UI/UX Designer",
