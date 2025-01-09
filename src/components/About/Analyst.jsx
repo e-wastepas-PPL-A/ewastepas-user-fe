@@ -23,13 +23,13 @@ const Analyst = () => {
       role: "Analyst",
       image: "/images/team/WinaAgustina.jpg",
     },
+    {
+      name: "Syahnan Afifah Zahra",
+      role: "Analyst",
+      image: "/images/team/SyahnanAfifah.jpg",
+    },
     // {
     //   name: "Syafira Deby Sanjaya",
-    //   role: "Analyst",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Syahnan Afifah Zahra",
     //   role: "Analyst",
     //   image: "/images/profile.png",
     // },

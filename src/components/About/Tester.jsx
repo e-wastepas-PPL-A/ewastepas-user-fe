@@ -38,13 +38,13 @@ const Tester = () => {
       role: "Tester",
       image: "/images/team/FajarAgusHermanto.jpg",
     },
+    {
+      name: "Billy Ramadhan",
+      role: "Tester",
+      image: "/images/team/BillyRamadhan.jpg",
+    },
     // {
     //   name: "Revina Bella Trisna",
-    //   role: "Tester",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Billy Ramadhan",
     //   role: "Tester",
     //   image: "/images/profile.png",
     // },

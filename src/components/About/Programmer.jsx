@@ -33,16 +33,21 @@ const Programmer = () => {
       role: "Back-End Developer",
       image: "/images/team/DandyWahyudin.jpg",
     },
-    // {
-    //   name: "Putri Legiani Fahreza",
-    //   role: "Back-End Developer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Syifa Rizki Mutia",
-    //   role: "Front-End Developer",
-    //   image: "/images/profile.png",
-    // },
+    {
+      name: "Muhamad Lanang Abid Kusuma",
+      role: "Back-End Developer",
+      image: "/images/team/MuhamadLanangAbidKusuma.jpg",
+    },
+    {
+      name: "Putri Legiani Fahreza",
+      role: "Back-End Developer",
+      image: "/images/team/PutriLegianiFahreza.jpg",
+    },
+    {
+      name: "Syifa Rizki Mutia",
+      role: "Front-End Developer",
+      image: "/images/team/SyifaRizkiMutia.jpg",
+    },
     // {
     //   name: "Moch Priamitra Nur Alif",
     //   role: "Back-End Developer",
@@ -50,11 +55,6 @@ const Programmer = () => {
     // },
     // {
     //   name: "Ainan Bahrul Ihsan",
-    //   role: "Back-End Developer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Muhamad Lanang Abid Kusuma",
     //   role: "Back-End Developer",
     //   image: "/images/profile.png",
     // },
