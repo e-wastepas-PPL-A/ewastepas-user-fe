@@ -1,33 +1,35 @@
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Hero = () => {
   return (
     <div className="relative overflow-hidden sm:rounded-lg bg-gray-900 text-white max-w-screen-xl mx-auto mt-24 md:mt-28 mb-20">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-900/60" />
-        <img
-          src="/images/hero.png"
+        <LazyLoadImage
+          src="/images/hero.jpg"
           alt="Hero"
           className="h-full w-full object-cover opacity-50"
         />
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 p-6 md:p-10 sm:my-16 mb-44">
+      <div className="relative z-10 p-6 md:p-10 sm:my-12 mb-44">
         <div className="flex flex-col justify-between items-center md:items-start">
           <div className="mb-8 sm:text-center">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6 mt-4">
-              <span className="block">Cara Baru</span>
-              <span className="block">Daur Ulang</span>
-              <span className="whitespace-nowrap">Sampah Elektronikmu</span>
+              <span className="block mb-4">Cara Baru Daur Ulang</span>
+              <span className="whitespace-nowrap">Sampah Elektronikmu!</span>
             </h1>
 
             <div className="flex sm:justify-center md:mb-10">
-              <button className="bg-primary hover:bg-primary-dark text-white px-4 py-2 text-lg font-semibold rounded-full flex items-center">
-                Daur Ulang Sekarang
-                <IoIosArrowForward className="ml-2 h-6 w-6" />
-              </button>
+              <a href="/CategoryPage">
+                <button className="bg-primary hover:bg-primary-dark text-white px-4 py-2 text-lg font-semibold rounded-full flex items-center">
+                  Daur Ulang Sekarang
+                  <IoIosArrowForward className="ml-2 h-6 w-6" />
+                </button>
+              </a>
             </div>
           </div>
         </div>

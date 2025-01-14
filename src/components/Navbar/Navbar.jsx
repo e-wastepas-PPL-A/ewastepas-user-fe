@@ -100,7 +100,7 @@ const Navbar = () => {
           </div>
 
           {/* Icons Section */}
-          <div className="flex items-center space-x-2 md:space-x-4">
+          <div className="flex items-center gap-8 space-x-2 md:space-x-4">
             <NavLink to="CartPage">
               <button className="text-3xl hover:text-primary">
                 <PiShoppingCartLight />

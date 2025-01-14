@@ -10,13 +10,18 @@ export default function HomePage() {
       <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
         <Hero />
       </div>
-      <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+        className="bg-gray-50"
+      >
         <Ewhale />
       </div>
-      <div className="flex items-center justify-center sm:pt-10">
+
+      <div className="flex items-center justify-center pt-10 ">
         <div className="text-center">
           <h1 className="text-primary font-bold text-3xl sm:text-4xl sm:pb-3">
-            Kategori
+            Pick & Pack
           </h1>
           <p className="pt-2 text-base text-gray-600">
             Pilih jenis sampah elektronik Anda!
@@ -26,15 +31,18 @@ export default function HomePage() {
       <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
         <CardSlider />
       </div>
-      <div className="flex items-center justify-center sm:pt-20 pt-10">
-        <div className="text-center">
-          <h1 className="text-primary font-bold text-3xl sm:text-4xl sm:pb-3">
-            3 Proses Mudah
-          </h1>
+
+      <div className="bg-secondary bg-opacity-10">
+        <div className="flex items-center justify-center sm:pt-20 pt-10 ">
+          <div className="text-center">
+            <h1 className="text-primary font-bold text-3xl sm:text-4xl sm:pb-3">
+              3 Proses Mudah
+            </h1>
+          </div>
         </div>
-      </div>
-      <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <Proses />
+        <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+          <Proses />
+        </div>
       </div>
       <div
         id="Contact"
