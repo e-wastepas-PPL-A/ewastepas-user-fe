@@ -28,21 +28,21 @@ const Analyst = () => {
       role: "Analyst",
       image: "/images/team/SyahnanAfifah.jpg",
     },
-    // {
-    //   name: "Syafira Deby Sanjaya",
-    //   role: "Analyst",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Muhammad Angga Kusuma",
-    //   role: "Analyst",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Wildan Nasrulloh Reliyanto",
-    //   role: "Analyst",
-    //   image: "/images/profile.png",
-    // },
+    {
+      name: "Syafira Deby Sanjaya",
+      role: "Analyst",
+      image: "/images/team/SyafiraDebySanjaya.jpg",
+    },
+    {
+      name: "Muhammad Angga Kusuma",
+      role: "Analyst",
+      image: "/images/team/MuhammadAnggaKusuma.jpg",
+    },
+    {
+      name: "Wildan Nasrulloh Reliyanto",
+      role: "Analyst",
+      image: "/images/team/WildanNasrullohReliyanto.jpg",
+    },
   ];
 
   return (

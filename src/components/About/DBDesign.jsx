@@ -43,11 +43,11 @@ const DBDesign = () => {
       role: "Database Designer",
       image: "/images/team/FowazAmranAlfarez.jpg",
     },
-    // {
-    //   name: "Adawiyah ajriah lubis",
-    //   role: "Database Designer",
-    //   image: "/images/profile.png",
-    // },
+    {
+      name: "Adawiyah ajriah lubis",
+      role: "Database Designer",
+      image: "/images/profile.png",
+    },
   ];
 
   return (

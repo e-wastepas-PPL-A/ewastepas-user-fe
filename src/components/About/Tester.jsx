@@ -43,11 +43,11 @@ const Tester = () => {
       role: "Tester",
       image: "/images/team/BillyRamadhan.jpg",
     },
-    // {
-    //   name: "Revina Bella Trisna",
-    //   role: "Tester",
-    //   image: "/images/profile.png",
-    // },
+    {
+      name: "Revina Bella Trisna",
+      role: "Tester",
+      image: "/images/profile.png",
+    },
   ];
 
   return (

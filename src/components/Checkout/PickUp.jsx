@@ -1,8 +1,10 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const PickUp = () => {
   return (
-    <div className="w-full  mx-auto">
+    <div className="w-full mx-auto">
       {/* Header */}
       <div className="flex items-center mb-4">
         <h2 className="text-base sm:text-lg font-bold">Penjemputan E-Waste</h2>
@@ -14,10 +16,11 @@ const PickUp = () => {
         <div className="border-b-2 border-gray-300 pb-4">
           <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
             {/* Gambar Produk */}
-            <img
+            <LazyLoadImage
               src="/images/kulkas.png"
               alt="Product"
               className="w-16 h-16 sm:w-20 sm:h-20 rounded-md object-contain"
+              effect="blur"
             />
             {/* Detail Produk */}
             <div className="flex flex-col sm:flex-row justify-between w-full">

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const categoryData = [
   {
@@ -80,9 +82,14 @@ const CardSlider = () => {
             backgroundPosition: "center",
           }}
         >
-          {/* image */}
+          {/* Lazy Load Image */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <img src={image} alt={title} className="w-52 object-contain z-10" />
+            <LazyLoadImage
+              src={image}
+              alt={title}
+              className="w-52 object-contain z-10"
+              effect="blur"
+            />
           </div>
         </div>
         {/* Title */}

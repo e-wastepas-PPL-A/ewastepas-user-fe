@@ -48,31 +48,36 @@ const Programmer = () => {
       role: "Front-End Developer",
       image: "/images/team/SyifaRizkiMutia.jpg",
     },
-    // {
-    //   name: "Moch Priamitra Nur Alif",
-    //   role: "Back-End Developer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Ainan Bahrul Ihsan",
-    //   role: "Back-End Developer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Zalfa Mufrih Rifda Dwi Ramadhan",
-    //   role: "Front-End Developer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Muhammad Rizki Haikal",
-    //   role: "Back-End Developer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Julio Faridh Fherdianscyah",
-    //   role: "Front-End Developer",
-    //   image: "/images/profile.png",
-    // },
+    {
+      name: "Moch Priamitra Nur Alif",
+      role: "Back-End Developer",
+      image: "/images/profile.png",
+    },
+    {
+      name: "Ainan Bahrul Ihsan",
+      role: "Back-End Developer",
+      image: "/images/profile.png",
+    },
+    {
+      name: "Barra Alkhasyani Permana",
+      role: "Front-End Developer",
+      image: "/images/team/BarraAlkhasyaniPermana.jpg",
+    },
+    {
+      name: "Zalfa Mufrih Rifda Dwi",
+      role: "Front-End Developer",
+      image: "/images/team/ZalfaRamadhan.jpg",
+    },
+    {
+      name: "Julio Faridh Fherdianscyah",
+      role: "Front-End Developer",
+      image: "/images/team/JulioFaridhFherdianscyahPantow.jpg",
+    },
+    {
+      name: "Muhammad Rizki Haikal",
+      role: "Back-End Developer",
+      image: "/images/profile.png",
+    },
   ];
 
   return (
