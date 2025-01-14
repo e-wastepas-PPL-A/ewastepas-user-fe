@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const productsData = [
   {
@@ -35,10 +37,11 @@ const Card = ({ title, points, image, bgImage, onAddToCart }) => {
           }}
         >
           {/* Image */}
-          <img
+          <LazyLoadImage
             src={image}
             alt={title}
             className="w-44 h-44 object-contain z-0"
+            effect="blur"
           />
         </div>
 

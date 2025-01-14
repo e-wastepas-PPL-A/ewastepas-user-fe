@@ -23,31 +23,31 @@ const Uiux = () => {
       role: "UI/UX Designer",
       image: "/images/team/RismaRahmanaFitri.jpg",
     },
-    // {
-    //   name: "Mohammad Deandra Adhitya",
-    //   role: "UI/UX Designer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Gloria Rustama Simbolon",
-    //   role: "UI/UX Designer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Diva Nur Haffifah",
-    //   role: "UI/UX Designer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Dzikry Habibie Muchtar",
-    //   role: "UI/UX Designer",
-    //   image: "/images/profile.png",
-    // },
-    // {
-    //   name: "Muhammad Dary Febrian",
-    //   role: "UI/UX Designer",
-    //   image: "/images/profile.png",
-    // },
+    {
+      name: "Mohammad Deandra Adhitya",
+      role: "UI/UX Designer",
+      image: "/images/profile.png",
+    },
+    {
+      name: "Gloria Rustama Simbolon",
+      role: "UI/UX Designer",
+      image: "/images/profile.png",
+    },
+    {
+      name: "Diva Nur Haffifah",
+      role: "UI/UX Designer",
+      image: "/images/profile.png",
+    },
+    {
+      name: "Dzikry Habibie Muchtar",
+      role: "UI/UX Designer",
+      image: "/images/profile.png",
+    },
+    {
+      name: "Muhammad Dary Febrian",
+      role: "UI/UX Designer",
+      image: "/images/profile.png",
+    },
   ];
 
   return (

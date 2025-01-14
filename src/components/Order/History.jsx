@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { FaSortAmountDownAlt, FaSortAmountUp } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const historyData = [
   {
@@ -92,10 +94,11 @@ const History = () => {
                   key={product.id}
                   className="border-t border-b py-4 flex flex-col sm:flex-row items-center sm:justify-between"
                 >
-                  <img
+                  <LazyLoadImage
                     src={product.image}
                     alt={product.title}
-                    className="w-28  sm:w-32 h-auto object-contain mb-4 sm:mb-0"
+                    className="w-28 sm:w-32 h-auto object-contain mb-4 sm:mb-0"
+                    effect="blur" // Efek blur saat gambar dimuat
                   />
                   <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 w-full sm:w-auto">
                     <span className="text-sm sm:text-base font-semibold">

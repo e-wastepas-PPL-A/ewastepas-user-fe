@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css"; // Opsional: untuk efek blur
 
 const ordersData = [
   {
@@ -65,10 +67,11 @@ const OnGoing = () => {
                 key={product.id}
                 className="border-t border-b py-4 flex flex-col sm:flex-row items-center sm:justify-between"
               >
-                <img
+                <LazyLoadImage
                   src={product.image}
                   alt={product.title}
                   className="w-28 sm:w-32 h-auto object-contain mb-4 sm:mb-0"
+                  effect="blur"
                 />
                 <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 w-full sm:w-auto">
                   <span className="text-sm sm:text-base font-semibold">

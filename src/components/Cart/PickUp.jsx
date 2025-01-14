@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const PickUp = () => {
   const [count, setCount] = useState(2);
@@ -57,10 +59,11 @@ const PickUp = () => {
               type="checkbox"
               className="form-checkbo text-xl w-4 h-6 sm:mr-3"
             />
-            <img
+            <LazyLoadImage
               src="/images/kulkas.png"
               alt="Produk"
               className="w-16 h-16 sm:mr-4 object-contain"
+              effect="blur"
             />
             <p className="text-gray-700 font-medium text-sm sm:text-base">
               Kulkas 100 pintu
