@@ -2,6 +2,7 @@ import Hero from "../components/Hero/Hero";
 import CardSlider from "../components/Category/CardSlider";
 import Contact from "../components/Contact/Contact";
 import Proses from "../components/Proses/Proses";
+import Ewhale from "../components/About/Ewhale";
 
 export default function HomePage() {
   return (
@@ -9,7 +10,10 @@ export default function HomePage() {
       <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
         <Hero />
       </div>
-      <div className="flex items-center justify-center sm:pt-20">
+      <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+        <Ewhale />
+      </div>
+      <div className="flex items-center justify-center sm:pt-10">
         <div className="text-center">
           <h1 className="text-primary font-bold text-3xl sm:text-4xl sm:pb-3">
             Kategori
