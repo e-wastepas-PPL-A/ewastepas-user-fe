@@ -10,18 +10,16 @@ const ResponsiveMenu = ({ open, setOpen }) => {
   const [userPhoto, setUserPhoto] = useState("/images/profile.png");
   const navigate = useNavigate();
 
-  // State for detecting screen size
   const [isLargeOrLarger, setIsLargeOrLarger] = useState(
-    window.innerWidth >= 1024 // Detect large screen size (1024px or larger)
+    window.innerWidth >= 1024 
   );
 
-  // Add Order to navLinks when logged in
   const navLinks = isLoggedIn
     ? [
         ...NavbarLinks.slice(0, 1),
         { name: "Pick & Pack", link: "/CategoryPage" },
         ...NavbarLinks.slice(1),
-        { name: "Order", link: "/OrderPage" }, // Add Order to navigation
+        { name: "Order", link: "/OrderPage" }, 
       ]
     : NavbarLinks;
 
@@ -49,19 +47,19 @@ const ResponsiveMenu = ({ open, setOpen }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeOrLarger(window.innerWidth >= 1024); // Check if screen is large or larger
+      setIsLargeOrLarger(window.innerWidth >= 1024); 
     };
 
-    window.addEventListener("resize", handleResize); // Listen for window resizing
+    window.addEventListener("resize", handleResize); 
 
     return () => {
-      window.removeEventListener("resize", handleResize); // Clean up the listener
+      window.removeEventListener("resize", handleResize); 
     };
   }, []);
 
   useEffect(() => {
     if (isLargeOrLarger && open) {
-      setOpen(false); // Close the menu on large and larger screens
+      setOpen(false); 
     }
   }, [isLargeOrLarger, open, setOpen]);
 
@@ -87,29 +85,27 @@ const ResponsiveMenu = ({ open, setOpen }) => {
 
   return (
     <>
-      {/* Overlay background when navbar is open */}
       {open && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-40"
-          onClick={() => setOpen(false)} // Close the menu if overlay is clicked
+          onClick={() => setOpen(false)} 
         />
       )}
 
       <div
-        className={`fixed top-0 right-0 bg-white z-50 w-full h-[60vh]   transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 bg-white z-50 w-full h-[80vh]   transform transition-transform duration-300 ease-in-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Logo */}
         <div className="flex justify-center pt-8">
-          <img src="/images/logo1.png" alt="Ewhale Logo" className="h-8" />
+          <img src="/images/Logo.png" alt="Ewhale Logo" className="h-8" />
         </div>
 
-        {/* Profile section - only show when logged in */}
         {isLoggedIn && (
           <NavLink
             to="/ProfilePage"
-            onClick={() => setOpen(false)} // Close the menu when profile is clicked
+            onClick={() => setOpen(false)}
             className="flex flex-col items-center mt-10"
           >
             <div className="w-14 h-14 rounded-full border-2 border-primary overflow-hidden">
@@ -132,7 +128,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
                   <button
                     onClick={(e) => {
                       handleScrollToContact(e);
-                      setOpen(false); // Close the menu when "Kontak" is clicked
+                      setOpen(false); 
                     }}
                     className="w-full px-6 py-4 text-left border-b border-gray-200"
                   >
@@ -141,7 +137,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
                 ) : (
                   <NavLink
                     to={navItem.link}
-                    onClick={() => setOpen(false)} // Close the menu when any nav item is clicked
+                    onClick={() => setOpen(false)} 
                     className={({ isActive }) =>
                       `block px-6 py-4 border-b border-gray-200 ${
                         isActive ? "text-primary" : ""
@@ -156,13 +152,12 @@ const ResponsiveMenu = ({ open, setOpen }) => {
           </ul>
         </nav>
 
-        {/* Logout button - only show when logged in */}
         {isLoggedIn && (
           <div className="absolute mt-72 left-0 right-0 flex justify-center items-center px-4">
             <button
               onClick={() => {
                 handleLogout();
-                setOpen(false); // Close the menu when logging out
+                setOpen(false); 
               }}
               className="bg-primary text-white py-1.5 px-8 rounded-none "
             >

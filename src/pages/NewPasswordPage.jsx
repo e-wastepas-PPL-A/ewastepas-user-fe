@@ -25,7 +25,7 @@ function NewPasswordPage() {
   const isValidLength = newPassword.length >= 8 && newPassword.length <= 20;
   const hasUppercase = /[A-Z]/.test(newPassword);
   const hasNumber = /\d/.test(newPassword);
-  const hasSpecialChar = /[#!?$&@.]/.test(newPassword);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(newPassword);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -149,7 +149,7 @@ function NewPasswordPage() {
         <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-full mx-auto p-6">
           <div className="flex justify-center mb-5 lg:mb-2 lg:-mt-56">
             <img
-              src="/images/logo1.png"
+              src="/images/Logo.png"
               alt="Logo"
               className="w-64 md:w-72 lg:w-80"
             />
