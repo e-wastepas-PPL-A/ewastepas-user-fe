@@ -5,7 +5,7 @@ import InputText from "../components/Input/InputText";
 import InputEmail from "../components/Input/InputEmail";
 import InputPassword from "../components/Input/InputPassword";
 import { Register } from "../utils/Api";
-import { FcGoogle } from "react-icons/fc";
+// import { FcGoogle } from "react-icons/fc";
 
 function RegisterPage() {
   const [name, setName] = useState("");
@@ -185,7 +185,7 @@ function RegisterPage() {
         <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-full mx-auto p-6">
           <div className="flex justify-center mb-8 -mt-10">
             <img
-              src="/images/logo.png"
+              src="/images/Logo.png"
               alt="Logo"
               className="w-64 md:w-72 lg:w-80"
             />
@@ -326,7 +326,7 @@ function RegisterPage() {
                 Masuk
               </a>
             </p>
-            <div className="flex items-center justify-center mt-2">
+            {/* <div className="flex items-center justify-center mt-2">
               <hr className="w-24 border-gray-300" />
               <p className="text-sm xl:text-base text-gray-500 mx-3">
                 Atau daftar dengan
@@ -337,7 +337,7 @@ function RegisterPage() {
               <button className="relative flex justify-center items-center w-10 h-10 bg-white border border-gray-300 rounded-full shadow-md hover:shadow-lg transition duration-300">
                 <FcGoogle size={24} />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

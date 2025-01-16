@@ -4,12 +4,12 @@ import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { NavLink, useNavigate } from "react-router-dom";
 import AvatarDropdown from "./AvatarDropdown";
-import Cookies from "js-cookie"; // Import js-cookie
+import Cookies from "js-cookie"; 
 
 export const NavbarLinks = [
   { name: "Beranda", link: "/" },
   { name: "Tentang Kami", link: "/AboutPage" },
-  { name: "Kontak", link: "/#Contact" }, // Link for scroll to Contact section
+  { name: "Kontak", link: "/#Contact" }, 
 ];
 
 const Navbar = () => {
@@ -24,12 +24,10 @@ const Navbar = () => {
       ]
     : NavbarLinks;
 
-  // Function to handle scroll to Contact section
   const handleScrollToContact = (e) => {
-    e.preventDefault(); // Prevent default link behavior
-    navigate("/"); // Navigate to the homepage
+    e.preventDefault(); 
+    navigate("/"); 
 
-    // Wait until the page is fully loaded before scrolling
     setTimeout(() => {
       const contactSection = document.getElementById("Contact");
       if (contactSection) {
@@ -38,10 +36,9 @@ const Navbar = () => {
     }, 0);
   };
 
-  // Handle navigation for Beranda to ensure it scrolls to the top
   const handleNavigateToHome = () => {
-    navigate("/"); // Navigate to HomePage
-    window.scrollTo(0, 0); // Scroll to the top of the page when "Beranda" is clicked
+    navigate("/"); 
+    window.scrollTo(0, 0); 
   };
 
   return (
@@ -54,7 +51,7 @@ const Navbar = () => {
               href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src="/images/logo.png" className="h-8" alt="E-whale Logo" />
+              <img src="/images/Logo.png" className="h-8" alt="E-whale Logo" />
             </a>
           </div>
 

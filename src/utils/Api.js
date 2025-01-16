@@ -74,13 +74,9 @@ export async function Login(email, password, rememberMe) {
   } catch (error) {
     console.error("Error saat login:", error);
 
-    // Tangani error secara spesifik
     if (error.response && error.response.data) {
-      // Lempar respons API untuk ditangani di `handleSubmit`
       throw error.response;
     }
-
-    // Tangani kesalahan lain seperti jaringan, timeout, dll.
     throw {
       data: { message: "Tidak dapat terhubung ke server. Silakan coba lagi." },
     };
@@ -98,7 +94,7 @@ export async function forgotPassword(email) {
       "Error during forgot password request:",
       error.response?.data || error.message
     );
-    throw error; // You may want to pass the error message to the frontend for a better UX
+    throw error;
   }
 }
 
