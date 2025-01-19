@@ -51,7 +51,13 @@ const Footer = () => {
           )}
         </div>
       </div>
-      <div className="container mx-auto text-center mt-4 border-t border-gray-300 pt-4">
+      <div className="container mx-auto text-center mt-4 border-t border-gray-300 pt-4 flex justify-between items-center">
+        <a
+          href="/petunjuk-penggunaan"
+          className="text-xs lg:text-sm font-semibold underline hover:text-gray-400"
+        >
+          Petunjuk Penggunaan
+        </a>
         <h5 className="text-xs lg:text-sm font-semibold">
           Copyright © 2024 ewhale.
         </h5>
