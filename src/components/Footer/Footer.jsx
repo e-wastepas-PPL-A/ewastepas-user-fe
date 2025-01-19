@@ -53,7 +53,9 @@ const Footer = () => {
       </div>
       <div className="container mx-auto text-center mt-4 border-t border-gray-300 pt-4 flex justify-between items-center">
         <a
-          href="/petunjuk-penggunaan"
+          href="/petunjuk-penggunaan.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-xs lg:text-sm font-semibold underline hover:text-gray-400"
         >
           Petunjuk Penggunaan
