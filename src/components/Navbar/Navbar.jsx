@@ -4,12 +4,12 @@ import { MdMenu } from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { NavLink, useNavigate } from "react-router-dom";
 import AvatarDropdown from "./AvatarDropdown";
-import Cookies from "js-cookie"; 
+import Cookies from "js-cookie";
 
 export const NavbarLinks = [
   { name: "Beranda", link: "/" },
   { name: "Tentang Kami", link: "/AboutPage" },
-  { name: "Kontak", link: "/#Contact" }, 
+  { name: "Kontak", link: "/#Contact" },
 ];
 
 const Navbar = () => {
@@ -25,8 +25,8 @@ const Navbar = () => {
     : NavbarLinks;
 
   const handleScrollToContact = (e) => {
-    e.preventDefault(); 
-    navigate("/"); 
+    e.preventDefault();
+    navigate("/");
 
     setTimeout(() => {
       const contactSection = document.getElementById("Contact");
@@ -37,8 +37,8 @@ const Navbar = () => {
   };
 
   const handleNavigateToHome = () => {
-    navigate("/"); 
-    window.scrollTo(0, 0); 
+    navigate("/");
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -51,7 +51,7 @@ const Navbar = () => {
               href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src="/images/Logo.png" className="h-8" alt="E-whale Logo" />
+              <img src="/images/logo.png" className="h-8" alt="E-whale Logo" />
             </a>
           </div>
 
@@ -97,7 +97,7 @@ const Navbar = () => {
           </div>
 
           {/* Icons Section */}
-          <div className="flex items-center gap-8 space-x-2 md:space-x-4">
+          <div className="flex items-center gap-5 space-x-2 md:space-x-4">
             <NavLink to="CartPage">
               <button className="text-3xl hover:text-primary">
                 <PiShoppingCartLight />

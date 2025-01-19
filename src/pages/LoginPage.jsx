@@ -90,7 +90,7 @@ function LoginPage() {
         <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-full mx-auto p-6">
           <div className="flex justify-center mb-5 lg:mb-2 lg:-mt-44">
             <img
-              src="/images/Logo.png"
+              src="/images/logo.png"
               alt="Logo"
               className="w-64 md:w-72 lg:w-80"
             />
